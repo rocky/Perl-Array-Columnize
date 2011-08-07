@@ -1,4 +1,4 @@
-Columnize - Module to show an Array formatted as a String aligned in columns. 
+Columnize - format an Array as a Column-aligned String
 ============================================================================
 
 In showing a long lists, sometimes one would prefer to see the value
@@ -9,8 +9,8 @@ aligned.
 Setup
 -----
 
-   use Array::Columnize;
-   print columnize(['a','b','c','d'], {displaywidth=>4});
+    use Array::Columnize;
+    print columnize(['a','b','c','d'], {displaywidth=>4});
 
 produces:
 
@@ -31,42 +31,43 @@ produces:
 
 while:
 
-   print columnize($data_ref, {ljust = 0, arrange_verticle = 0}) ;
+    print columnize($data_ref, {ljust = 0, arrange_verticle = 0}) ;
 
 produces:
 
-   80  83  86  89  92  95   98  101  104  107  110  113  116  119
-   81  84  87  90  93  96   99  102  105  108  111  114  117  120
-   82  85  88  91  94  97  100  103  106  109  112  115  118
+    80  83  86  89  92  95   98  101  104  107  110  113  116  119
+    81  84  87  90  93  96   99  102  105  108  111  114  117  120
+    82  85  88  91  94  97  100  103  106  109  112  115  118
 
 With String data
 ----------------
 
-  $aref = qw(bibrons golden madascar leopard mourning suras tokay);
-  print columnize $g, :displaywidth => 15
-  $ print columnize($aref, {displaywidth => 15});
-  bibrons   suras
-  golden    tokay
-  madascar  
-  leapard
-  mourning
+    $aref = qw(bibrons golden madascar leopard mourning suras tokay);
+    print columnize $g, :displaywidth => 15
+    $ print columnize($aref, {displaywidth => 15});
+    bibrons   suras
+    golden    tokay
+    madascar  
+    leapard
+    mourning
 
-  $ puts columnize $aref, {displaywidth => 18, colsep => ' | '};
-  bibrons  | suras
-  golden   | tokay
-  madascar
-  leopard 
-  mourning
+    $ puts columnize $aref, {displaywidth => 18, colsep => ' | '};
+    bibrons  | suras
+    golden   | tokay
+    madascar
+    leopard 
+    mourning
 
 Credits
 -------
 
-  This is adapted from my Ruby gem of the same name.
+This is adapted from my [Ruby gem of the same name](https://github.com/rocky/columnize).
 
 Other stuff
 -----------
 
 Author:   Rocky Bernstein <rocky@cpan.org>
+
 License:  Copyright (c) 2011 Rocky Bernstein
 
 Warranty
