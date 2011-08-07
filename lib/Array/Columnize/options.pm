@@ -7,11 +7,6 @@ package Array::Columnize;
 
 use vars qw($DEFAULT_OPTS);
 
-sub set_config_value($$$) {
-    my ($config, $field, $value) = @_;
-    $config->{$field} = $value unless defined $config->{$field};
-}
-
 # Default values for columize options.
 $DEFAULT_OPTS = {
     arrange_array => 1,
@@ -30,7 +25,7 @@ $DEFAULT_OPTS = {
 sub merge_config(%) {
     my $config = shift;
     while (($field, $default_value) = each %$DEFAULT_OPTS) {
-	set_config_value($config, $field, $default_value);
+	$config->{$field} = $default_value unless defined $config->{$field};
     };
 }
 
