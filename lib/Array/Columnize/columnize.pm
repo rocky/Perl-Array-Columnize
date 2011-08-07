@@ -4,6 +4,7 @@ package Array::Columnize;
 use strict;
 use warnings;
 use lib '../..';
+use POSIX;
 use Array::Columnize::options;
 
 # Return the length of String +cell+. If Boolean +term_adjust+ is true,
@@ -121,7 +122,7 @@ sub columnize($;$) {
         for (my $_ncols=scalar(@l); $_ncols > 0; $_ncols--) {
 	    $ncols = $_ncols;
 	    # Try every row count from 1 upwards
-	    my $min_rows = (scalar(@l)+$ncols-1) / $ncols;
+	    my $min_rows = POSIX::ceil((scalar(@l)+$ncols-1) / $ncols);
 	    for (my $_nrows=$min_rows; $_nrows <= scalar(@l); $_nrows++) {
 		$nrows = $_nrows;
 		$rounded_size = $nrows * $ncols;
@@ -129,8 +130,8 @@ sub columnize($;$) {
 		$totwidth = -length($opts{colsep});
 		my ($colwidth, $row) = (0,0);
 		for (my $col=0; $col < $ncols; $col++) {
-		    # # get max column width for this column
-		    for (my $_row=1; $_row < $nrows; $_row++) {
+		    # get max column width for this column
+		    for (my $_row=1; $_row <= $nrows; $_row++) {
 		    	$row = $_row;
 		    	$i = $array_index->($nrows, $row, $col);
 		    	if ($i >= $rounded_size) {
@@ -164,7 +165,7 @@ sub columnize($;$) {
 	my @s = ('');
 	my $prefix = $opts{array_prefix} = '' ? 
 	    $opts{lineprefix} : $opts{array_prefix}; 
-	for (my $row=1; $row < $nrows; $row++) {
+	for (my $row=1; $row <= $nrows; $row++) {
 	    my @texts = ();
 	    my $x;
 	    for (my $col=0; $col < $ncols; $col++) {
@@ -221,7 +222,6 @@ if (__FILE__ eq $0) {
 		"twentyfive","twentysix",   "twentyseven");
 	    
     print columnize(\@data);
-    # 	    puts columnize(data, 80, '  ', false)
 }
 
 1;
