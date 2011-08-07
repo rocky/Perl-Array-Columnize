@@ -5,29 +5,32 @@
 =cut
 package Array::Columnize;
 
+use vars qw($DEFAULT_OPTS);
+
 sub set_config_value($$$) {
     my ($config, $field, $value) = @_;
     $config->{$field} = $value unless defined $config->{$field};
 }
 
-# Merg in default configuration options into the passed hash reference.
+# Default values for columize options.
+$DEFAULT_OPTS = {
+    arrange_array => 1,
+    arrange_vertical => 1,
+    array_prefix => '',
+    array_suffix => '',
+    colsep => '  ',
+    displaywidth => $ENV{'COLUMNS'} || 80,
+    lineprefix => '',
+    ljust => 'auto',
+    term_adjust => 0
+};
+
+# Merge in default configuration options into the passed hash reference.
 # Values already set in the hash are untouched.
 sub merge_config(%) {
     my $config = shift;
-    my @field_values = 
-	( 
-	  ['arrange_array', 1],
-	  ['arrange_vertical', 1],
-	  ['array_prefix', ''],
-	  ['array_suffix', ''],
-	  ['colsep', '  '],
-	  ['displaywidth', $ENV{'COLUMNS'} || 80],
-	  ['lineprefix', ''],
-	  ['ljust', 'auto'],
-	  ['term_adjust', 0]
-	);
-    foreach my $tuple (@field_values) {
-	set_config_value($config, $tuple->[0], $tuple->[1]);
+    while (($field, $default_value) = each %$DEFAULT_OPTS) {
+	set_config_value($config, $field, $default_value);
     };
 }
 
