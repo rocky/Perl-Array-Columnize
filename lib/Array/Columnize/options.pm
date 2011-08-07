@@ -32,8 +32,8 @@ sub merge_config(%) {
 if (__FILE__ eq $0 ) {
     my %config;
     merge_config \%config;
-    use Data::Dumper;
-    print Dumper(\%config), "\n";
+    require Data::Dumper;
+    print Data::Dumper::Dumper(\%config), "\n";
 
     my $config = {
 	arrange_array => 0,
@@ -42,9 +42,9 @@ if (__FILE__ eq $0 ) {
 	displaywidth  => 10,
 	bogus         => 'yep'
     };
-    print Dumper($config), "\n";
+    print Data::Dumper::Dumper($config), "\n";
     merge_config $config;
-    print Dumper($config), "\n";
+    print Data::Dumper::Dumper($config), "\n";
 }
 
 1;
