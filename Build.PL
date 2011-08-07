@@ -29,7 +29,7 @@ my $builder = Module::Build->new(
     dist_author         => 'Rocky Bernstein <rocky@cpan.org>',
     dist_version_from   => 'lib/Array/Columnize.pm',
     license             => 'gpl',
-    needs_compiler      => 1,
+    needs_compiler      => 0,
     release_status      => 'testing',
     requires => {
 	'ExtUtils::PkgConfig'     => '1.03',
@@ -39,6 +39,4 @@ my $builder = Module::Build->new(
     sign                => 1,
     );
 
-#distclean : unlink lib/perliso9660.pm, lib/perlmmc.pm lib/perlcdio.pm
-# c files?
 $builder->create_build_script();
