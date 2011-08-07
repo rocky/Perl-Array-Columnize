@@ -3,6 +3,8 @@ lib/Array/Columnize.pm
 lib/Array/Columnize/columnize.pm
 lib/Array/Columnize/options.pm
 MANIFEST			This list of files
+META.yml
+README.md
 t/01.version.t
 t/02.options.t
 t/03.cell_size.t
