@@ -42,21 +42,24 @@ produces:
 With String data
 ----------------
 
-    $aref = qw(bibrons golden madascar leopard mourning suras tokay);
-    print columnize $g, :displaywidth => 15
-    $ print columnize($aref, {displaywidth => 15});
-    bibrons   suras
-    golden    tokay
-    madascar  
-    leapard
-    mourning
+    @ary = qw(bibrons golden madascar leopard mourning suras tokay);
+    print columnize(\@ary, {displaywidth => 18});
 
-    $ puts columnize $aref, {displaywidth => 18, colsep => ' | '};
-    bibrons  | suras
-    golden   | tokay
-    madascar
+produces: 
+
+    bibrons   mourning
+    golden    suras   
+    madascar  tokay   
     leopard 
-    mourning
+
+    puts columnize \@ary, {displaywidth => 18, colsep => ' | '};
+
+produces:
+
+    bibrons  | mourning
+    golden   | suras   
+    madascar | tokay   
+    leopard 
 
 Credits
 -------
