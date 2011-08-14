@@ -21,8 +21,8 @@ use ExtUtils::PkgConfig;
 use Config;
 
 my $builder = Module::Build->new( 
-    module_name         => 'Device::Array::Columnize',
-    add_to_cleanup      => [ 'Device-Array-Columnize-*', 'tmp*'  ],
+    module_name         => 'Array::Columnize',
+    add_to_cleanup      => [ 'Array-Columnize-*', 'tmp*'  ],
     create_makefile_pl  => 'passthrough',
     dist_abstract       => 
     'Format an Array as an Array of String aligned in columns.',
