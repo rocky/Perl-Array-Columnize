@@ -180,7 +180,8 @@ sub columnize($;$) {
 		$texts[$col] = sprintf($fmt, $texts[$col]);
 	    }
 	    push(@s, sprintf("%s%s", $opts{lineprefix}, 
-			     join($opts{colsep}, @texts)));
+
+			     join($opts{colsep}, @texts))) if scalar(@texts);
 
 	}
 	return join("\n", @s) . "\n";
