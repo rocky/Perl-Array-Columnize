@@ -12,18 +12,19 @@ BEGIN {
 
 use Array::Columnize::columnize;
 
-# is(Array::Columnize::columnize([1, 2, 3], {displaywidth => 10, colsep => ', '}),
-#    "1, 2, 3\n");
-# # assert_equal("", columnize(5));
-# is("1  3\n2  4\n", 
-#    Array::Columnize::columnize(['1', '2', '3', '4'], {displaywidth => 4}));
+my $args = ['step', 'next', 'kill', 'quit'];
+my $b = Array::Columnize::columnize($args);
+is($b, "step  next  kill  quit\n", );
+
+is("1  3\n2  4\n", 
+   Array::Columnize::columnize(['1', '2', '3', '4'], {displaywidth => 4}));
 
 # is("1  2\n3  4\n", 
 #    Array::Columnize::columnize(['1', '2', '3', '4'],
 #                                {displaywidth => 4, colsep => '  ', arrange_vertical => 0}));
 
-# is("<empty>\n", Array::Columnize::columnize([]));
-# is("oneitem\n", Array::Columnize::columnize(["oneitem"]));
+is("<empty>\n", Array::Columnize::columnize([]));
+is("oneitem\n", Array::Columnize::columnize(["oneitem"]));
 
 # @data = (0..54);
 # is(

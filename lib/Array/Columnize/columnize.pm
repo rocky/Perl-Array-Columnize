@@ -87,7 +87,7 @@ sub columnize($;$) {
 	# The smallest number of rows computed and the max widths for
 	# each column has been obtained.  Now we just have to format
 	# each of the rows.
-	my @s = ('');
+	my @s = ();
 	for (my $row=0; $row < $nrows; $row++) {
 	    my @texts = ();
 	    my $x;
@@ -159,7 +159,7 @@ sub columnize($;$) {
 	# max widths for each column has been obtained.
 	# Now we just have to format each of the
 	# rows.
-	my @s = ('');
+	my @s = ();
 	my $prefix = $opts{array_prefix} = '' ? 
 	    $opts{lineprefix} : $opts{array_prefix}; 
 	for (my $row=1; $row <= $nrows; $row++) {
