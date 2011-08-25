@@ -1,9 +1,11 @@
 Build.PL
 lib/Array/Columnize.pm
+lib/Array/Columnize/Makefile
 lib/Array/Columnize/columnize.pm
 lib/Array/Columnize/options.pm
 MANIFEST			This list of files
 META.yml
+Makefile
 README.md
 t/01.version.t
 t/02.options.t

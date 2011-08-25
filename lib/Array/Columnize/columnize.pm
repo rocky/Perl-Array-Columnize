@@ -62,7 +62,7 @@ sub columnize($;$) {
 	# Try every row count from 1 upwards
 	for (my $_nrows=1; $_nrows < scalar @l; $_nrows++) {
 	    $nrows = $_nrows;
-	    $ncols = (scalar(@l) + $nrows-1) / $nrows;
+	    $ncols = POSIX::ceil((scalar(@l)) / $nrows);
 	    @colwidths = ();
 	    my $totwidth = -length($opts{colsep});
 	    
@@ -87,7 +87,7 @@ sub columnize($;$) {
 	# The smallest number of rows computed and the max widths for
 	# each column has been obtained.  Now we just have to format
 	# each of the rows.
-	my @s = ('');
+	my @s = ();
 	for (my $row=0; $row < $nrows; $row++) {
 	    my @texts = ();
 	    my $x;
@@ -134,13 +134,10 @@ sub columnize($;$) {
 		    for (my $_row=1; $_row <= $nrows; $_row++) {
 		    	$row = $_row;
 		    	$i = $array_index->($nrows, $row, $col);
-		    	if ($i >= $rounded_size) {
-		    	    last;
-		    	} elsif ($i < scalar(@l)) {
-		    	    my $try_size = cell_size($l[$i], 
-		    				     $opts{term_adjust});
-		    	    $colwidth = $try_size if $try_size > $colwidth;
-		    	}
+		    	last if $i >= scalar(@l);
+			my $try_size = cell_size($l[$i], 
+						 $opts{term_adjust});
+			$colwidth = $try_size if $try_size > $colwidth;
 		    }
 		    push @colwidths, $colwidth;
 		    $totwidth += $colwidth + length($opts{colsep});
@@ -162,7 +159,7 @@ sub columnize($;$) {
 	# max widths for each column has been obtained.
 	# Now we just have to format each of the
 	# rows.
-	my @s = ('');
+	my @s = ();
 	my $prefix = $opts{array_prefix} = '' ? 
 	    $opts{lineprefix} : $opts{array_prefix}; 
 	for (my $row=1; $row <= $nrows; $row++) {
@@ -183,7 +180,8 @@ sub columnize($;$) {
 		$texts[$col] = sprintf($fmt, $texts[$col]);
 	    }
 	    push(@s, sprintf("%s%s", $opts{lineprefix}, 
-			     join($opts{colsep}, @texts)));
+
+			     join($opts{colsep}, @texts))) if scalar(@texts);
 
 	}
 	return join("\n", @s) . "\n";
@@ -194,6 +192,10 @@ sub columnize($;$) {
 # Demo it
 if (__FILE__ eq $0) {
     use feature 'say';
+
+    my @ary = qw(bibrons golden madascar leopard mourning suras tokay);
+    print columnize(\@ary, {displaywidth => 18});
+
     my $line = 'require [1;29m"[0m[1;37mirb[0m[1;29m"[0m';
     say cell_size($line, 1);
     say cell_size($line, 0);

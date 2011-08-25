@@ -5,44 +5,56 @@ use Test::More;
 use lib '../lib';
 use Test::More;
 
-note( "Testing Array::Columnize::cell_size" );
 BEGIN {
     use_ok( Array::Columnize::columnize );
 }
 
 use Array::Columnize::columnize;
 
-# is(Array::Columnize::columnize([1, 2, 3], {displaywidth => 10, colsep => ', '}),
-#    "1, 2, 3\n");
-# # assert_equal("", columnize(5));
-# is("1  3\n2  4\n", 
-#    Array::Columnize::columnize(['1', '2', '3', '4'], {displaywidth => 4}));
+note( "Testing degenerate cases" );
+is(Array::Columnize::columnize([]), "<empty>\n");
+is( Array::Columnize::columnize(["oneitem"]), "oneitem\n");
 
-# is("1  2\n3  4\n", 
-#    Array::Columnize::columnize(['1', '2', '3', '4'],
-#                                {displaywidth => 4, colsep => '  ', arrange_vertical => 0}));
+note( "Testing horizontal placement" );
+is("1  2\n3  4\n", 
+   Array::Columnize::columnize(['1', '2', '3', '4'],
+                               {displaywidth => 4, colsep => '  ', 
+				arrange_vertical => 0}));
 
-# is("<empty>\n", Array::Columnize::columnize([]));
-# is("oneitem\n", Array::Columnize::columnize(["oneitem"]));
-
-# @data = (0..54);
-# is(
-#     "0,  6, 12, 18, 24, 30, 36, 42, 48, 54\n" + 
-#     "1,  7, 13, 19, 25, 31, 37, 43, 49\n" +
-#     "2,  8, 14, 20, 26, 32, 38, 44, 50\n" +
-#     "3,  9, 15, 21, 27, 33, 39, 45, 51\n" +
-#     "4, 10, 16, 22, 28, 34, 40, 46, 52\n" +
-#     "5, 11, 17, 23, 29, 35, 41, 47, 53\n",
-#     Array::Columnize.columnize(\@data, 39, {colsep => ', ', arrange_veritical => 0, ljust => 0}));
+@data = (0..54);
+is(
+    Array::Columnize::columnize(\@data, 
+				{colsep => ', ', 
+				 displaywidth => 39,
+				 arrange_veritical => 0, 
+				 ljust => 0}),
+    "0,  6, 12, 18, 24, 30, 36, 42, 48, 54\n" .
+    "1,  7, 13, 19, 25, 31, 37, 43, 49\n" .
+    "2,  8, 14, 20, 26, 32, 38, 44, 50\n" .
+    "3,  9, 15, 21, 27, 33, 39, 45, 51\n" .
+    "4, 10, 16, 22, 28, 34, 40, 46, 52\n" .
+    "5, 11, 17, 23, 29, 35, 41, 47, 53\n"
+);
     
+note( "Testing vertical placement" );
+my $args = ['step', 'next', 'kill', 'quit'];
+my $b = Array::Columnize::columnize($args);
+is("step  next  kill  quit\n", $b);
+
+is("1  3\n2  4\n", 
+   Array::Columnize::columnize(['1', '2', '3', '4'], {displaywidth => 4}));
+
 # is(
-#     " 0,  1,  2,  3,  4,  5,  6,  7,  8,  9\n" +
-#     "10, 11, 12, 13, 14, 15, 16, 17, 18, 19\n" +
-#     "20, 21, 22, 23, 24, 25, 26, 27, 28, 29\n" +
-#     "30, 31, 32, 33, 34, 35, 36, 37, 38, 39\n" +
-#     "40, 41, 42, 43, 44, 45, 46, 47, 48, 49\n" +
+#     " 0,  1,  2,  3,  4,  5,  6,  7,  8,  9\n" .
+#     "10, 11, 12, 13, 14, 15, 16, 17, 18, 19\n" .
+#     "20, 21, 22, 23, 24, 25, 26, 27, 28, 29\n" .
+#     "30, 31, 32, 33, 34, 35, 36, 37, 38, 39\n" .
+#     "40, 41, 42, 43, 44, 45, 46, 47, 48, 49\n" .
 #     "50, 51, 52, 53, 54\n",
-#     columnize(data, 39, ', ', false, false));
+#     Array::Columnize::columnize(\@data, 
+# 				{colsep => ', ', 
+# 				 displaywidth => 39,
+# 				 arrange_veritical => 0}));
     
 
 # is(
@@ -54,7 +66,6 @@ use Array::Columnize::columnize;
 #     "  45, 46, 47, 48, 49, 50, 51, 52, 53\n" +
 #     "  54\n",
 #     columnize(data, 39, ', ', false, false, '  '));
-
 
 # $data = ["one",       "two",         "three",
 # 	 "for",       "five",        "six",
