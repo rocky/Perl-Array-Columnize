@@ -1,22 +1,23 @@
 ---
-abstract: 'Format an Array as an Array of String aligned in columns.'
+name: Array-Columnize
+version: v0.3.5
 author:
   - 'Rocky Bernstein <rocky@cpan.org>'
-build_requires:
-  ExtUtils::CBuilder: 0
-configure_requires:
-  Module::Build: 0.36
-dynamic_config: 0
-generated_by: 'Module::Build version 0.3607'
+abstract: Format an Array as an Array of String aligned in columns.
 license: gpl
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-name: Device-Array-Columnize
+resources:
+  license: http://opensource.org/licenses/gpl-license.php
 requires:
   ExtUtils::PkgConfig: 1.03
   Test::More: 0
   version: 0
-resources:
-  license: http://opensource.org/licenses/gpl-license.php
-version: v0.3.5
+configure_requires:
+  Module::Build: 0.340201
+provides:
+  Array::Columnize:
+    file: lib/Array/Columnize.pm
+    version: v0.3.5
+generated_by: Module::Build version 0.340201
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4

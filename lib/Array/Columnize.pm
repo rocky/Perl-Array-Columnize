@@ -38,7 +38,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @ISA = qw/ Exporter /;
 @EXPORT = qw(columnize);
 
-use version; $VERSION = '0.3.5'; # 0.3.5 to match initial Ruby version
+use version; $VERSION = '0.3.6';
 
 if (__FILE__ eq $0 ) {
     use feature 'say';

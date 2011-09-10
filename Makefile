@@ -40,7 +40,7 @@ config_data:
 diff: 
 	perl Build --makefile_env_macros 1 diff
 
-#: Create distrubution tarball
+#: Create distribution tarball
 dist:
 	perl Build --makefile_env_macros 1 dist
 
@@ -69,6 +69,7 @@ docs:
 fakeinstall:
 	perl Build --makefile_env_macros 1 fakeinstall
 
+#: Show help
 help:
 	perl Build --makefile_env_macros 1 help
 
@@ -102,11 +103,14 @@ pure_install:
 skipcheck :
 	perl Build --makefile_env_macros 1 skipcheck
 
+#: Same as "test". "check" is the usual autoconf name
 check: test
 
+#: Run all unit tests
 test:
 	perl Build --makefile_env_macros 1 test
 
+#: Check code coverage
 testcover:
 	perl Build --makefile_env_macros 1 testcover
 
