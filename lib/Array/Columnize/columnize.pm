@@ -111,7 +111,7 @@ sub columnize($;$) {
 				 join($opts{colsep}, @texts)));
 	    }
 	}
-	return join("\n", @s) . "\n";
+	return join("\n", @s);
     } else {
     	my $array_index = sub ($$$) {
 	    my ($num_rows, $row, $col) = @_;
@@ -184,7 +184,7 @@ sub columnize($;$) {
 			     join($opts{colsep}, @texts))) if scalar(@texts);
 
 	}
-	return join("\n", @s) . "\n";
+	return join("\n", @s);
     }
 }
 
