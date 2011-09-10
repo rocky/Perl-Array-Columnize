@@ -12,11 +12,11 @@ BEGIN {
 use Array::Columnize::columnize;
 
 note( "Testing degenerate cases" );
-is(Array::Columnize::columnize([]), "<empty>\n");
-is( Array::Columnize::columnize(["oneitem"]), "oneitem\n");
+is(Array::Columnize::columnize([]), "<empty>");
+is( Array::Columnize::columnize(["oneitem"]), "oneitem");
 
 note( "Testing horizontal placement" );
-is("1  2\n3  4\n", 
+is("1  2\n3  4", 
    Array::Columnize::columnize(['1', '2', '3', '4'],
                                {displaywidth => 4, colsep => '  ', 
 				arrange_vertical => 0}));
@@ -33,15 +33,15 @@ is(
     "2,  8, 14, 20, 26, 32, 38, 44, 50\n" .
     "3,  9, 15, 21, 27, 33, 39, 45, 51\n" .
     "4, 10, 16, 22, 28, 34, 40, 46, 52\n" .
-    "5, 11, 17, 23, 29, 35, 41, 47, 53\n"
+    "5, 11, 17, 23, 29, 35, 41, 47, 53"
 );
     
 note( "Testing vertical placement" );
 my $args = ['step', 'next', 'kill', 'quit'];
 my $b = Array::Columnize::columnize($args);
-is("step  next  kill  quit\n", $b);
+is($b, "step  next  kill  quit");
 
-is("1  3\n2  4\n", 
+is("1  3\n2  4", 
    Array::Columnize::columnize(['1', '2', '3', '4'], {displaywidth => 4}));
 
 # is(

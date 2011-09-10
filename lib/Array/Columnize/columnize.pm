@@ -38,11 +38,11 @@ sub columnize($;$) {
     # Some degenerate cases
     # FIXME test for arrayness
     # return '' if  $aref is not an array
-    return "<empty>\n" if 0 == scalar(@l);
+    return "<empty>" if 0 == scalar(@l);
     $opts = {} unless $opts;
     merge_config $opts;
     my %opts = %$opts;
-    return sprintf("%s%s%s\n", 
+    return sprintf("%s%s%s", 
 		   $opts{array_prefix}, $opts{lineprefix}, 
 		    $l[0], $opts{array_suffix}) if 1 == scalar(@l);
 
