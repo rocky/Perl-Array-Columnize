@@ -191,14 +191,12 @@ sub columnize($;$) {
 
 # Demo it
 if (__FILE__ eq $0) {
-    use feature 'say';
-
     my @ary = qw(bibrons golden madascar leopard mourning suras tokay);
     print columnize(\@ary, {displaywidth => 18});
 
     my $line = 'require [1;29m"[0m[1;37mirb[0m[1;29m"[0m';
-    say cell_size($line, 1);
-    say cell_size($line, 0);
+    print cell_size($line, 1), "\n";
+    print cell_size($line, 0), "\n";
 
     print columnize(['hi']);
     print columnize([]);
@@ -206,9 +204,9 @@ if (__FILE__ eq $0) {
     for my $tuple ([4, 4], [4, 7], [100, 180]) {
 	my @data = ($tuple->[0]..$tuple->[1]);
 	print columnize(\@data, {colsep =>'  ', arrange_vertical=>0});
-	say '------------------------';
+	print "------------------------\n";
 	print columnize(\@data, {colsep =>'  ', arrange_vertical=>1});
-	say '========================';
+	print "========================\n";
     }
     print columnize(["a", 2, "c"], {displaywidth => 10, colsep => ', '});
     print columnize(["oneitem"]);

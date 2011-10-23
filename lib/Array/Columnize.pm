@@ -41,9 +41,8 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 use version; $VERSION = '0.3.6';
 
 if (__FILE__ eq $0 ) {
-    use feature 'say';
-    say "This is version: $Array::Columnize::VERSION";
-    say columnize([1,2,3,4], {displaywidth=>4});
+    print "This is version: $Array::Columnize::VERSION\n";
+    print columnize([1,2,3,4], {displaywidth=>4}), "\n";
 }
 
 1;
