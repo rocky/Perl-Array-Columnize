@@ -1,6 +1,11 @@
 /*~
+/Array-Columnize-*.gz
 /Build
 /MANIFEST.bak
+/META.json
+/MYMETA.json
 /MYMETA.yml
+/Makefile.PL
 /_build
 /blib
+/how-to-make-a-release.txt
