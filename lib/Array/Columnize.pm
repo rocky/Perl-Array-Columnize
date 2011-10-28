@@ -38,7 +38,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @ISA = qw/ Exporter /;
 @EXPORT = qw(columnize);
 
-use version; $VERSION = '0.3.7';
+use version; $VERSION = '0.3.8dev';
 
 if (__FILE__ eq $0 ) {
     print "This is version: $Array::Columnize::VERSION\n";

@@ -30,7 +30,7 @@ my $builder = Module::Build->new(
     license             => 'gpl',
     needs_compiler      => 0,
     release_status      => 'stable',
-    build_requires => {
+    configure_requires => {
 	'Module::Build'           => 0.38
     },
     requires => {
