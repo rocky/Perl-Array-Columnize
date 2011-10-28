@@ -1,5 +1,8 @@
 Revision history for Array-Columnize
 
+0.3.7 - Oct 28, 2011
+I said, feature "say"!
+
 0.3.6 - Oct 27, 2011
 Remove feature "say" so it works on Perl pre 5.010.
 

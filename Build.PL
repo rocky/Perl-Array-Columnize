@@ -30,11 +30,13 @@ my $builder = Module::Build->new(
     license             => 'gpl',
     needs_compiler      => 0,
     release_status      => 'stable',
+    build_requires => {
+	'Module::Build'           => 0.38
+    },
     requires => {
 	'ExtUtils::PkgConfig'     => '1.03',
         'Test::More'              => 0,
         'version'                 => 0,
-	'Module::Build'           => 0.38
     },
     sign                => 1,
     );
