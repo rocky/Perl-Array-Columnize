@@ -1,8 +1,8 @@
 Columnize - format an Array as a Column-aligned String
 ============================================================================
 
-In showing a long lists, sometimes one would prefer to see the value
-arranged aligned in columns. Some examples include listing methods of
+In showing long lists, sometimes one would prefer to see the values
+arranged and aligned in columns. Some examples include listing methods of
 an object, listing debugger commands, or showing a numeric array with data
 aligned.
 
@@ -14,14 +14,14 @@ Setup
 
 produces:
 
-    1  3
-    2  4
+    a  c
+    b  d
 
 With numeric data
 -----------------
 
-    $data_ref = [80..120];
-    print columnize($data, {ljust = 0}) ;
+    my $data_ref = [80..120];
+    print columnize($data_ref, {ljust = 0}) ;
 
 produces:
 
@@ -38,6 +38,8 @@ produces:
     80  83  86  89  92  95   98  101  104  107  110  113  116  119
     81  84  87  90  93  96   99  102  105  108  111  114  117  120
     82  85  88  91  94  97  100  103  106  109  112  115  118
+
+(NOTE: what's the difference)?
 
 With String data
 ----------------

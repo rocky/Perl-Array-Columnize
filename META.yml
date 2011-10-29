@@ -2,13 +2,12 @@
 abstract: 'Format an Array as an Array of String aligned in columns.'
 author:
   - 'Rocky Bernstein <rocky@cpan.org>'
-build_requires:
-  Module::Build: 0.38
+build_requires: {}
 configure_requires:
   Module::Build: 0.38
 dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
-license: open_source
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110440'
+license: gpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -16,11 +15,11 @@ name: Array-Columnize
 provides:
   Array::Columnize:
     file: lib/Array/Columnize.pm
-    version: v0.3.7
+    version: v0.3.8
 requires:
   ExtUtils::PkgConfig: 1.03
   Test::More: 0
   version: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: v0.3.7
+version: v0.3.8
