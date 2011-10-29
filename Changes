@@ -6,6 +6,7 @@ Revision history for Array-Columnize
     (which interferes with the flow of doing ./Build disttest ).
     - Renamed Makefile to Makefile.devel so doing perl Makefile.PL won't 
     interfere with it.
+    - Correct some typos in the README.md and added a TODO there (SHLOMIF).
 
 0.3.7 - Oct 28, 2011
 I said, feature "say"!
