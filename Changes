@@ -1,5 +1,10 @@
 Revision history for Array-Columnize
 
+    - Made the Build.PL non-executable (for better kwalitee:
+        - http://cpants.perl.org/kwalitee.html#buildtool_not_executable
+    - Add an environment variable - PERL_MB_NOSIGN to disable signing a package
+    (which interferes with the flow of doing ./Build disttest ).
+
 0.3.7 - Oct 28, 2011
 I said, feature "say"!
 
