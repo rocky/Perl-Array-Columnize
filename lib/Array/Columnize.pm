@@ -1,4 +1,3 @@
-#!/usr/bin/env perl 
 # Format an Array as an Array of String aligned in columns.
 #
 # == Summary
