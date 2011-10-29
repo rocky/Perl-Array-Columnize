@@ -3,6 +3,7 @@
 # Avoid version control files.
 \bhow-to-make-a-release.txt$
 \bArray-Columnize-v.*\.gz$
+\bArray-Columnize-v[\.\d]+/.*$
 \bRCS\b
 \bCVS\b
 \bSCCS\b
@@ -31,6 +32,7 @@
 \#$
 \b\.#
 \.bak$
+\.swp$
 
 # Avoid Devel::Cover files.
 \bcover_db\b
