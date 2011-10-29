@@ -30,6 +30,7 @@ build:
 #: Remove automatically generated files
 clean: 
 	perl Build --makefile_env_macros 1 clean
+	rm *.orig *.rej */*/*.orig */*/*.rej
 
 code: 
 	perl Build --makefile_env_macros 1 code
