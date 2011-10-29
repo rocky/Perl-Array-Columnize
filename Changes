@@ -4,6 +4,8 @@ Revision history for Array-Columnize
         - http://cpants.perl.org/kwalitee.html#buildtool_not_executable
     - Add an environment variable - PERL_MB_NOSIGN to disable signing a package
     (which interferes with the flow of doing ./Build disttest ).
+    - Renamed Makefile to Makefile.devel so doing perl Makefile.PL won't 
+    interfere with it.
 
 0.3.7 - Oct 28, 2011
 I said, feature "say"!
