@@ -34,9 +34,11 @@ my $builder = Module::Build->new(
     configure_requires => {
 	'Module::Build'           => 0.38
     },
-    requires => {
+    build_requires => {
 	'ExtUtils::PkgConfig'     => '1.03',
         'Test::More'              => 0,
+    },
+    requires => {
         'version'                 => 0,
     },
     sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
