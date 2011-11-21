@@ -2,7 +2,7 @@
 # -*- Perl -*-
 use warnings;
 use Test::More;
-use lib '../lib';
+use rlib '../lib';
 use Test::More;
 
 BEGIN {
@@ -16,10 +16,10 @@ is(Array::Columnize::columnize([]), "<empty>");
 is( Array::Columnize::columnize(["oneitem"]), "oneitem");
 
 note( "Testing horizontal placement" );
-is("1  2\n3  4", 
-   Array::Columnize::columnize(['1', '2', '3', '4'],
+is(Array::Columnize::columnize(['1', '2', '3', '4'],
                                {displaywidth => 4, colsep => '  ', 
-				arrange_vertical => 0}));
+				arrange_vertical => 0}),
+   "1  2\n3  4");
 
 @data = (0..54);
 is(
