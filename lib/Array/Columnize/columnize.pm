@@ -119,7 +119,7 @@ sub columnize($;$) {
 	};
     	# Try every column count from size downwards.
     	my ($totwidth, $i, $rounded_size) = (0, 0, 0);
-        for (my $_ncols=scalar(@l); $_ncols > 0; $_ncols--) {
+        for (my $_ncols=scalar(@l); $_ncols >= 1; $_ncols--) {
 	    $ncols = $_ncols;
 	    # Try every row count from 1 upwards
 	    my $min_rows = POSIX::ceil((scalar(@l)+$ncols-1) / $ncols);
@@ -155,6 +155,8 @@ sub columnize($;$) {
 	    }
 	    last if ($totwidth <= $opts{displaywidth} && $i >= $rounded_size-1);
 	}
+	$nrows = scalar(@l) if $ncols == 1;
+
 	# The smallest number of rows computed and the
 	# max widths for each column has been obtained.
 	# Now we just have to format each of the
@@ -177,7 +179,7 @@ sub columnize($;$) {
 	    for (my $col=0; $col < scalar(@texts); $col++) {
 		my $fmt = sprintf("%%%s$colwidths[$col]s",
 				  ($opts{ljust} ? '-': '')); 
-		$texts[$col] = sprintf($fmt, $texts[$col]);
+		$texts[$col] = sprintf($fmt, $texts[$col]) if $ncols != 1;
 	    }
 	    push(@s, sprintf("%s%s", $opts{lineprefix}, 
 
@@ -190,7 +192,7 @@ sub columnize($;$) {
 
 
 # Demo it
-if (__FILE__ eq $0) {
+unless (caller) {
 
     my @ary = qw(bibrons golden madascar leopard mourning suras tokay);
     print columnize(\@ary, {displaywidth => 18});

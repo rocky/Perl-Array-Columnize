@@ -2,7 +2,7 @@
 # -*- Perl -*-
 use warnings;
 use Test::More;
-use lib '../lib';
+use rlib '../lib';
 use Test::More;
 
 note( "Testing Array::Columnize::options" );
@@ -12,7 +12,7 @@ BEGIN {
 
 my %config;
 Array::Columnize::merge_config \%config;
-
+use strict;
 my @test_keys; 
 @test_keys = qw(arrange_array term_adjust lineprefix colsep);
 
@@ -22,6 +22,7 @@ foreach my $option (@test_keys) {
 
 my(@isect, %count); @isect = %count = ();
 my @both = (keys(%config), @test_keys);
+my @diff = ();
 foreach my $elt (@both) { $count{$elt}++ }
 foreach my $elt (keys %count) { 
     if ($count{$elt} == 2) { push @isect, $elt; } else { push @diff, $elt; }

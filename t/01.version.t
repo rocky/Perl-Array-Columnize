@@ -1,12 +1,14 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/env perl
 # -*- Perl -*-
+use warnings;
 use Test::More;
-use lib '../lib';
+use rlib '../lib';
 use Test::More tests => 2;
 note( "Testing Array::Columnize::VERSION" );
 BEGIN {
 use_ok( Array::Columnize );
 }
+use strict;
 
 ok(defined($Array::Columnize::VERSION), 
    "\$Array::Columnize::VERSION number is set");

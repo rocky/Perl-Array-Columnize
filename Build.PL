@@ -36,6 +36,7 @@ my $builder = Module::Build->new(
     requires => {
 	'ExtUtils::PkgConfig'     => '1.03',
         'Test::More'              => 0,
+        'rlib'                    => '0.02',
         'version'                 => 0,
     },
     sign                => 1,
