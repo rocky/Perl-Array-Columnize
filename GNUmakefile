@@ -23,7 +23,7 @@
 all:
 	perl Build --makefile_env_macros 1
 
-#: Build program, e.g. compile C programs
+#: Build program, e.g. copy to blib
 build:
 	perl Build --makefile_env_macros 1 build
 
@@ -76,15 +76,15 @@ help:
 html: 
 	perl Build --makefile_env_macros 1 html
 
-#: Build and install package
+#: Install this puppy
 install:
 	perl Build --makefile_env_macros 1 install
 
-#: Create or update MANIFEST file
+#: Make a MANIFEST file
 manifest:
 	perl Build --makefile_env_macros 1 manifest
 
-#: Create or update manual pages
+#: Generate manual pages
 manpages:
 	perl Build --makefile_env_macros 1 manpages
 
@@ -114,6 +114,11 @@ test:
 testcover:
 	perl Build --makefile_env_macros 1 testcover
 
+#:Create a log file from the individual commits
+ChangeLog:
+	git log --pretty --numstat --summary | git2cl > $@
+
+#: Calling perl debugger (perldb) on each test
 testdb:
 	perl Build --makefile_env_macros 1 testdb
 

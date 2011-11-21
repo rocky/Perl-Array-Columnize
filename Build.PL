@@ -1,3 +1,4 @@
+#!/usr/bin/env perl 
 #  Copyright (C) 2011 Rocky Bernstein <rockycpan.org>
 #
 #  This program is free software: you can redistribute it and/or modify
@@ -33,13 +34,15 @@ my $builder = Module::Build->new(
     configure_requires => {
 	'Module::Build'           => 0.38
     },
-    requires => {
+    build_requires => {
 	'ExtUtils::PkgConfig'     => '1.03',
         'Test::More'              => 0,
+    },
+    requires => {
         'rlib'                    => '0.02',
         'version'                 => 0,
     },
-    sign                => 1,
+    sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
     );
 
 $builder->create_build_script();
