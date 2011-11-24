@@ -84,6 +84,8 @@ sub columnize($;$) {
 	    }
 	    last if ($totwidth <= $opts{displaywidth});
 	}
+	$nrows = scalar(@l) if $ncols == 1;
+
 	# The smallest number of rows computed and the max widths for
 	# each column has been obtained.  Now we just have to format
 	# each of the rows.
