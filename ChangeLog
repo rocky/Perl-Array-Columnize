@@ -1,3 +1,48 @@
+2011-11-24  rocky <rocky@cpan.org>
+
+	* lib/Array/Columnize/columnize.pm, t/05.longcol.t: More
+	exceeded-line testing.
+
+2011-11-24  rocky <rocky@cpan.org>
+
+	* lib/Array/Columnize/columnize.pm, t/05.longcol.t: One more
+	situation where we have a long column.
+
+2011-11-20  rocky <rocky@cpan.org>
+
+	Merge branch 'master' of github.com:rocky/Perl-Array-Columnize
+	Conflicts: 	META.yml
+
+2011-11-20  rocky <rocky@cpan.org>
+
+	* META.yml: Administrivia
+
+2011-11-20  rocky <rocky@cpan.org>
+
+	Merge branch 'master' of github.com:rocky/Perl-Array-Columnize
+	Conflicts: 	Build.PL
+
+2011-11-20  rocky <rocky@cpan.org>
+
+	* Build.PL, lib/Array/Columnize/columnize.pm, t/01.version.t,
+	t/02.options.t, t/03.cell_size.t, t/04.columnize.t, t/05.longcol.t: 
+	Don't left-pad one-column output in vertical arrangement. More
+	strict on tests and declare @diff in 02.options as per CPANTS.
+	Replace "use lib" with "use rlib". More strict on test
+
+2011-11-13  rocky <rocky@cpan.org>
+
+	* GNUmakefile: Add installdeps target
+
+2011-11-12  rocky <rocky@cpan.org>
+
+	* META.yml: Meta changed
+
+2011-11-12  rocky <rocky@cpan.org>
+
+	* Build.PL, ChangeLog, Changes, GNUmakefile, MANIFEST,
+	lib/Array/Columnize.pm: Get ready for 0.3.9 release
+
 2011-11-06  rocky <rocky@cpan.org>
 
 	* Build.PL, GNUmakefile, MANIFEST, Makefile.devel: Makefile.devel ->
