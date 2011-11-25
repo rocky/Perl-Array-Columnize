@@ -84,6 +84,7 @@ sub columnize($;$) {
 	    }
 	    last if ($totwidth <= $opts{displaywidth});
 	}
+	$ncols = 1 if $ncols < 1;
 	$nrows = scalar(@l) if $ncols == 1;
 
 	# The smallest number of rows computed and the max widths for
@@ -105,9 +106,11 @@ sub columnize($;$) {
 	    pop(@texts) while (scalar(@texts) > 0 && $texts[-1] eq '');
 	    if (scalar(@texts) > 0) {
 		for (my $col=0; $col < scalar(@texts); $col++) {
-		    my $fmt = sprintf("%%%s$colwidths[$col]s",
-				      ($opts{ljust} ? '-': '')); 
-		    $texts[$col] = sprintf($fmt, $texts[$col]);
+		    unless ($ncols == 1 && $opts{ljust}) {
+			my $fmt = sprintf("%%%s$colwidths[$col]s",
+					  ($opts{ljust} ? '-': '')); 
+			$texts[$col] = sprintf($fmt, $texts[$col]);
+		    }
 		}
 		push(@s, sprintf("%s%s", $opts{lineprefix}, 
 				 join($opts{colsep}, @texts)));
@@ -179,9 +182,11 @@ sub columnize($;$) {
 		push @texts, $x;
 	    }
 	    for (my $col=0; $col < scalar(@texts); $col++) {
-		my $fmt = sprintf("%%%s$colwidths[$col]s",
-				  ($opts{ljust} ? '-': '')); 
-		$texts[$col] = sprintf($fmt, $texts[$col]) if $ncols != 1;
+		unless ($ncols == 1 && $opts{ljust}) {
+		    my $fmt = sprintf("%%%s$colwidths[$col]s",
+				      ($opts{ljust} ? '-': '')); 
+		    $texts[$col] = sprintf($fmt, $texts[$col]);
+		}
 	    }
 	    push(@s, sprintf("%s%s", $opts{lineprefix}, 
 

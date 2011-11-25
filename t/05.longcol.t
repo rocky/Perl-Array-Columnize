@@ -29,4 +29,28 @@ is(Array::Columnize::columnize($data,
     );
 
 
+$data = ["whaaaaaat's", "up"];
+is(Array::Columnize::columnize($data,
+                               {displaywidth => 7,
+				ljust=>0,
+				arrange_vertical => 0}),
+   "whaaaaaat's\n         up"
+    );
+
+$data = ["whaaaaaat's", "up"];
+is(Array::Columnize::columnize($data,
+                               {displaywidth => 7,
+				ljust=>1,
+				arrange_vertical => 0}),
+   "whaaaaaat's\nup"
+    );
+
+$data = ["whaaaaaat's", "up"];
+is(Array::Columnize::columnize($data,
+                               {displaywidth => 7,
+				ljust=>1,
+				arrange_vertical => 1}),
+   "whaaaaaat's\nup"
+    );
+
 done_testing();
