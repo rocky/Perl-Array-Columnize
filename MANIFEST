@@ -14,3 +14,4 @@ t/01.version.t
 t/02.options.t
 t/03.cell_size.t
 t/04.columnize.t
+t/05.longcol.t

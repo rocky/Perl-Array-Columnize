@@ -21,7 +21,7 @@ is(Array::Columnize::columnize(['1', '2', '3', '4'],
 				arrange_vertical => 0}),
    "1  2\n3  4");
 
-@data = (0..54);
+my @data = (0..54);
 is(
     Array::Columnize::columnize(\@data, 
 				{colsep => ', ', 

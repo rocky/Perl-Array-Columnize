@@ -8,7 +8,7 @@ build_requires:
 configure_requires:
   Module::Build: 0.38
 dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112150'
 license: open_source
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -17,10 +17,10 @@ name: Array-Columnize
 provides:
   Array::Columnize:
     file: lib/Array/Columnize.pm
-    version: v0.3.9
+    version: v0.4.0
 requires:
   rlib: 0.02
   version: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: v0.3.9
+version: v0.4.0
