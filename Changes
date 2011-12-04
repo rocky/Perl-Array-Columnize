@@ -1,4 +1,6 @@
 Revision history for Array-Columnize
+0.4.1 - Dec 3, 2011
+    - Try to silence CPANTS
 0.4.0 - Nov 24, 2011
     - Handle situations where text is longer than display width.
     - More strict on tests and as per CPANTS reports
