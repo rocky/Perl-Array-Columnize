@@ -17,7 +17,6 @@
 use strict;
 use warnings;
 use Module::Build;
-use ExtUtils::PkgConfig;
 use Config;
 
 my $builder = Module::Build->new( 
@@ -32,10 +31,9 @@ my $builder = Module::Build->new(
     needs_compiler      => 0,
     release_status      => 'stable',
     configure_requires => {
-	'Module::Build'           => 0.38
+	'Module::Build'           => 0,
     },
     build_requires => {
-	'ExtUtils::PkgConfig'     => '1.03',
         'Test::More'              => 0,
     },
     requires => {
