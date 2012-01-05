@@ -1,5 +1,5 @@
 #!/usr/bin/env perl 
-#  Copyright (C) 2011 Rocky Bernstein <rockycpan.org>
+#  Copyright (C) 2011, 2012 Rocky Bernstein <rockycpan.org>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ my $builder = Module::Build->new(
 	'Module::Build'           => 0,
     },
     build_requires => {
-        'Test::More'              => 0,
+        'Test::More'              => 0.81,
     },
     requires => {
         'rlib'                    => '0.02',

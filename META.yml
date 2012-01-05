@@ -3,10 +3,9 @@ abstract: 'Format an Array as an Array of String aligned in columns.'
 author:
   - 'Rocky Bernstein <rocky@cpan.org>'
 build_requires:
-  ExtUtils::PkgConfig: 1.03
   Test::More: 0
 configure_requires:
-  Module::Build: 0.38
+  Module::Build: 0
 dynamic_config: 1
 generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112150'
 license: open_source
@@ -17,10 +16,10 @@ name: Array-Columnize
 provides:
   Array::Columnize:
     file: lib/Array/Columnize.pm
-    version: v0.4.1
+    version: v0.4.2
 requires:
   rlib: 0.02
   version: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: v0.4.0
+version: v0.4.2
