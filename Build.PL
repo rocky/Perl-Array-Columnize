@@ -30,6 +30,15 @@ my $builder = Module::Build->new(
     license             => 'gpl',
     needs_compiler      => 0,
     release_status      => 'stable',
+
+    meta_merge => {
+	resources => {
+	    bugtracker  => 'https://github.com/rocky/Perl-Array-Columnize/issues',
+	    repository  => 'http://github.com/rocky/Perl-Array-Columnize'
+	}
+    },    
+
+
     configure_requires => {
 	'Module::Build'           => 0,
     },

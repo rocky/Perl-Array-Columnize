@@ -19,7 +19,7 @@
 #
 # == License 
 #
-# Columnize is copyright (C) 2011 Rocky Bernstein <rocky@cpan.org>
+# Columnize is copyright (C) 2011-2012 Rocky Bernstein <rocky@cpan.org>
 #
 # All rights reserved.  You can redistribute and/or modify it under
 # the same terms as Perl.
@@ -37,7 +37,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @ISA = qw/ Exporter /;
 @EXPORT = qw(columnize);
 
-use version; $VERSION = '0.4.2';
+use version; $VERSION = '1.00';  # Add _01 when we want testing.
 
 if (__FILE__ eq $0 ) {
     print "This is version: $Array::Columnize::VERSION\n";
@@ -151,7 +151,7 @@ L<http://cpanratings.perl.org/d/Array-Columnize>
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Array-Columnize>
+L<https://github.com/rocky/Perl-Array-Columnize/issues>
 
 =item * Search CPAN
 
@@ -161,7 +161,7 @@ L<http://search.cpan.org/dist/Array-Columnize>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright (c) 2011 Rocky Bernstein.
+Copyright (c) 2011, 2012 Rocky Bernstein.
 
 =head2 LICENSE
 
