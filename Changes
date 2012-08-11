@@ -1,4 +1,8 @@
-Revision history for Array-Columnize
+Revision history for Array::Columnize
+1.00 - 
+    - Packaging changes. Version number conforms to 
+      http://perldoc.perl.org/perlmodstyle.html#Version-numbering
+    - Change Meta data to point to github repository and issue tracker
 0.4.2 - Jan 2, 2011
     - Re-release to reduce dependencies
 0.4.1 - Dec 3, 2011
