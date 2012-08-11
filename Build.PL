@@ -46,8 +46,10 @@ my $builder = Module::Build->new(
         'Test::More'              => 0.81,
     },
     requires => {
-        'rlib'                    => '0.02',
         'version'                 => 0,
+    },
+    test_requires => {
+        'rlib'                    => '0.02',
     },
     sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
     );

@@ -8,4 +8,5 @@
 /Makefile.PL
 /_build
 /blib
+/cover_db
 /how-to-make-a-release.txt
