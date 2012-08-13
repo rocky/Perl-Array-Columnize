@@ -1,5 +1,5 @@
 Revision history for Array::Columnize
-1.00 - 
+1.00 - Aug 3, 2012
     - Packaging changes. Version number conforms to 
       http://perldoc.perl.org/perlmodstyle.html#Version-numbering
     - Change Meta data to point to github repository and issue tracker

@@ -1,3 +1,42 @@
+2012-08-11  rocky <rocky@cpan.org>
+
+	* .gitignore, Build.PL: rlib is only needed in testing.
+
+2012-08-11  rocky <rocky@cpan.org>
+
+	* Changes, lib/Array/Columnize.pm: Columnize.pm: Correct examples in
+	pod. I said, use github's issue tracker. Changes: what's up.
+
+2012-08-11  rocky <rocky@cpan.org>
+
+	* Build.PL, lib/Array/Columnize.pm: Change version according to
+	http://perldoc.perl.org/perlmodstyle.html#Version-numbering. Add
+	github for repository and issue tracker.
+
+2012-01-05  rocky <rocky@cpan.org>
+
+	* Build.PL, Changes, META.yml: Add min version on Test::More
+
+2011-12-25  rocky <rocky@cpan.org>
+
+	* Build.PL, lib/Array/Columnize.pm: Don't use ExtUtils::PkgConfig.
+	Go for minimum Module::Build.
+
+2011-12-03  rocky <rocky@cpan.org>
+
+	* Changes, META.yml, lib/Array/Columnize.pm: Get ready for release
+	4.1
+
+2011-11-29  rocky <rocky@cpan.org>
+
+	* MANIFEST, META.yml, lib/Array/Columnize.pm, t/04.columnize.t: Try
+	to make CPANTS from bitching.
+
+2011-11-24  rocky <rocky@cpan.org>
+
+	* ChangeLog, Changes, lib/Array/Columnize.pm: Get ready for 0.4.0
+	release
+
 2011-11-24  rocky <rocky@cpan.org>
 
 	* lib/Array/Columnize/columnize.pm, t/05.longcol.t: More

@@ -2,8 +2,8 @@
 #!start included /usr/share/perl/5.10/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bhow-to-make-a-release.txt$
-\bArray-Columnize-v.*\.gz$
-\bArray-Columnize-v[\.\d]+/.*$
+\bArray-Columnize-.*\.gz$
+\bArray-Columnize-[\.\d]+/.*$
 \bRCS\b
 \bCVS\b
 \bSCCS\b

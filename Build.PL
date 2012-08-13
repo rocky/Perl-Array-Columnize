@@ -1,5 +1,5 @@
 #!/usr/bin/env perl 
-#  Copyright (C) 2011, 2012 Rocky Bernstein <rockycpan.org>
+#  Copyright (C) 2011, 2012 Rocky Bernstein <rocky@cpan.org>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/Array/Columnize.pm',
     license             => 'gpl',
     needs_compiler      => 0,
-    release_status      => 'stable',
+    release_status      => 'testing', # or 'stable'
 
     meta_merge => {
 	resources => {
@@ -41,6 +41,7 @@ my $builder = Module::Build->new(
 
     configure_requires => {
 	'Module::Build'           => 0,
+	'perl'                    => '5.006001',
     },
     build_requires => {
         'Test::More'              => 0.81,
