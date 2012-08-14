@@ -1,3 +1,23 @@
+2012-08-13  rocky <rocky@cpan.org>
+
+	* META.yml: Add version of perl and bump version.
+
+2012-08-13  rocky <rocky@cpan.org>
+
+	* Build.PL, Changes, README.md, eg/example.pl,
+	lib/Array/Columnize.pm, lib/Array/Columnize/columnize.pm,
+	lib/Array/Columnize/options.pm, t/02.options.t, t/04.columnize.t,
+	t/05.longcol.t, t/Makefile: Add option arrange_array to format data
+	as an array. Use rlib more pervasively; is a package require ot now
+	silence smoker failures. Add t/Makefile for my convenience.
+
+2012-08-13  rocky <rocky@cpan.org>
+
+	* .gitignore, Build.PL, ChangeLog, Changes, MANIFEST,
+	MANIFEST.SKIP, META.yml, eg/example.pl, lib/Array/Columnize.pm,
+	t/00.test-pod.t: Various changes for kwality - not to be confused
+	with real quality.
+
 2012-08-11  rocky <rocky@cpan.org>
 
 	* .gitignore, Build.PL: rlib is only needed in testing.

@@ -45,6 +45,7 @@ produces:
     120
 
 And 
+
     $num_ary = [1..30];
     puts columnize $num_ary, 
     {displaywidth => 18, 

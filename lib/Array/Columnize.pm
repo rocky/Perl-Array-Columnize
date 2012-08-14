@@ -38,7 +38,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @EXPORT = qw(columnize);
 
 # Add or remove  _01 when we want testing.
-use version; $VERSION = '1.01';  
+use version; $VERSION = '1.01_01';  
 
 unless (caller) {
     # Demo code
@@ -106,6 +106,7 @@ produces:
     120
 
 And 
+
     my $array_ref = [1..30];
     print columnize($array_ref,
 		    {arrange_array => 1, ljust =>0, displaywidth => 70});
