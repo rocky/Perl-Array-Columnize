@@ -32,7 +32,7 @@ foreach my $elt (keys %count) {
 # print join(", ", @diff), "\n";
 
 my $config2 = {
-    arrange_array => 0,
+    arrange_array => 1,
     term_adjust   => 1,
     lineprefix    => '...',
     colsep        => ', ',

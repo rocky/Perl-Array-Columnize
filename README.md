@@ -44,6 +44,17 @@ produces:
     110  111  112  113  114  115  116  117  118  119
     120
 
+And 
+    $num_ary = [1..30];
+    puts columnize $num_ary, 
+    {displaywidth => 18, 
+		    {arrange_array => 1, ljust =>0, displaywidth => 70});
+
+produces:
+
+    ( 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15
+     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30)
+
 With String data
 ----------------
 
@@ -66,6 +77,7 @@ produces:
     madascar | tokay   
     leopard 
 
+
 Credits
 -------
 
@@ -76,7 +88,7 @@ Other stuff
 
 Author:   Rocky Bernstein <rocky@cpan.org>
 
-License:  Copyright (c) 2011 Rocky Bernstein
+License:  Copyright (c) 2011, 2012 Rocky Bernstein
 
 Warranty
 --------

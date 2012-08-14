@@ -1,8 +1,9 @@
 #!/usr/bin/env perl
+use rlib '../lib';
 use Array::Columnize;
 
 # Simple data example 
-print columnize(['a','b','c','d'], {displaywidth=>4}), "\n";
+print columnize(['a','b','c','d'], {displaywidth=>4});
 # produces:
 #
 #    a  c
@@ -10,8 +11,8 @@ print columnize(['a','b','c','d'], {displaywidth=>4}), "\n";
 
 # With numeric data
 
-my $data_ref = [80..120];
-print columnize($data_ref, {ljust => 0}), "\n" ;
+my $num_aref = [80..120];
+print columnize($num_aref, {ljust => 0});
 
 # produces:
 #
@@ -21,7 +22,7 @@ print columnize($data_ref, {ljust => 0}), "\n" ;
 
 # while:
 
-print columnize($data_ref, {ljust => 0, arrange_vertical => 0}) ;
+print columnize($num_aref, {ljust => 0, arrange_vertical => 0}) ;
 
 # produces:
 #
@@ -30,4 +31,14 @@ print columnize($data_ref, {ljust => 0, arrange_vertical => 0}) ;
 #    100  101  102  103  104  105  106  107  108  109
 #    110  111  112  113  114  115  116  117  118  119
 #    120
+
+# while 
+
+$num_aref = [1..30];
+print columnize($num_aref,
+		{arrange_array => 1, ljust =>0, displaywidth => 70});
+
+# produces:
+# ( 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15
+#  16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30)
 

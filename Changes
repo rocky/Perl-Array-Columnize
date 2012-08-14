@@ -1,21 +1,30 @@
 Revision history for Array::Columnize
-1.00 - Aug 3, 2012
+
+1.01 - Aug 13, 2012
+    - Add option arrange_array to format as an array.
+    - Use rlib more pervasivly and use it
+    - incompatible change: always end string with "\n"
+
+1.00 - Aug 12, 2012
     - Packaging changes. Version number conforms to 
       http://perldoc.perl.org/perlmodstyle.html#Version-numbering
     - Change Meta data to point to github repository and issue tracker
+
 0.4.2 - Jan 2, 2011
     - Re-release to reduce dependencies
+
 0.4.1 - Dec 3, 2011
     - Try to silence CPANTS
+
 0.4.0 - Nov 24, 2011
     - Handle situations where text is longer than display width.
     - More strict on tests and as per CPANTS reports
+
 0.3.9 - Nov 12, 2011
     - rerelease with 'dev' in version number. 
       it was messing up some Module::Builds 
     - Update GNUmakefile
     - Build.PL back to more convenient form (for worse kwalitee).
-    
 
 0.3.8 - Oct 29, 2011
     - Made the Build.PL non-executable (for better kwalitee:

@@ -11,21 +11,21 @@ my $data = ["what's", "upppppppppppppppppp"];
 is(Array::Columnize::columnize($data,
                                {displaywidth => 7,
 				arrange_vertical => 0}),
-    "what's\nupppppppppppppppppp", 
+    "what's\nupppppppppppppppppp\n", 
     );
 
 is(Array::Columnize::columnize($data,
                                {displaywidth => 7,
 				ljust=>1,
 				arrange_vertical => 1}),
-    "what's\nupppppppppppppppppp", 
+    "what's\nupppppppppppppppppp\n", 
     );
 
 is(Array::Columnize::columnize($data,
                                {displaywidth => 7,
 				ljust=>0,
 				arrange_vertical => 1}),
-    "what's\nupppppppppppppppppp", 
+    "what's\nupppppppppppppppppp\n", 
     );
 
 
@@ -34,7 +34,7 @@ is(Array::Columnize::columnize($data,
                                {displaywidth => 7,
 				ljust=>0,
 				arrange_vertical => 0}),
-   "whaaaaaat's\n         up"
+   "whaaaaaat's\n         up\n"
     );
 
 $data = ["whaaaaaat's", "up"];
@@ -42,7 +42,7 @@ is(Array::Columnize::columnize($data,
                                {displaywidth => 7,
 				ljust=>1,
 				arrange_vertical => 0}),
-   "whaaaaaat's\nup"
+   "whaaaaaat's\nup\n"
     );
 
 $data = ["whaaaaaat's", "up"];
@@ -50,7 +50,7 @@ is(Array::Columnize::columnize($data,
                                {displaywidth => 7,
 				ljust=>1,
 				arrange_vertical => 1}),
-   "whaaaaaat's\nup"
+   "whaaaaaat's\nup\n"
     );
 
 done_testing();

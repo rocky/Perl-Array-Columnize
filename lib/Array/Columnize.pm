@@ -38,7 +38,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @EXPORT = qw(columnize);
 
 # Add or remove  _01 when we want testing.
-use version; $VERSION = '1.00_01';  
+use version; $VERSION = '1.01';  
 
 unless (caller) {
     # Demo code
@@ -84,8 +84,8 @@ produces:
 
 =head2 With numeric data
 
-    my $data_ref = [80..120];
-    print columnize($data_ref, {ljust => 0}) ;
+    my $array_ref = [80..120];
+    print columnize($array_ref, {ljust => 0}) ;
 
 produces:
 
@@ -95,7 +95,7 @@ produces:
 
 while:
 
-    print columnize($data_ref, {ljust => 0, arrange_vertical => 0}) ;
+    print columnize($array_ref, {ljust => 0, arrange_vertical => 0}) ;
 
 produces:
 
@@ -104,6 +104,16 @@ produces:
     100  101  102  103  104  105  106  107  108  109
     110  111  112  113  114  115  116  117  118  119
     120
+
+And 
+    my $array_ref = [1..30];
+    print columnize($array_ref,
+		    {arrange_array => 1, ljust =>0, displaywidth => 70});
+
+produces:
+
+   ( 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15
+    16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30)
 
 =head2 With String data
 

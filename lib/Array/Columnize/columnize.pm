@@ -1,11 +1,11 @@
 #!/usr/bin/env perl 
 # See doc in Array::Columnize
+use rlib '../..';
+use Array::Columnize::options;
 package Array::Columnize;
 use strict;
 use warnings;
-use lib '../..';
 use POSIX;
-use Array::Columnize::options;
 
 # Return the length of String +cell+. If Boolean +term_adjust+ is true,
 # ignore terminal sequences in +cell+.
@@ -19,10 +19,10 @@ sub cell_size($$) {
 # set of columns arranged horizontally or vertically.
 #
 # For example, for a line width of 4 characters (arranged vertically):
-#     ['1', '2,', '3', '4'] => '1  3\n2  4'
+#     ['1', '2,', '3', '4'] => '1  3\n2  4\n'
 
 # or arranged horizontally:
-#     ['1', '2,', '3', '4'] => '1  2\n3  4'
+#     ['1', '2,', '3', '4'] => '1  2\n3  4\n'
 #     
 # Each column is only as wide possible, no larger than
 # +displaywidth'.  If +list+ is not an array, the empty string, '',
@@ -38,9 +38,22 @@ sub columnize($;$) {
     # Some degenerate cases
     # FIXME test for arrayness
     # return '' if  $aref is not an array
-    return "<empty>" if 0 == scalar(@l);
+    return "<empty>\n" if 0 == scalar(@l);
     $opts = {} unless $opts;
     merge_config $opts;
+    if ($opts->{arrange_array}) {
+        $opts->{array_prefix} ||= '(';
+	$opts->{lineprefix}   ||= ' ';
+        $opts->{array_suffix} ||= ")";
+        $opts->{colsep}         = ', ';
+        $opts->{arrange_vertical} = 0;
+    };
+    if (1 == scalar @l) {
+	my $ret = sprintf("%s%s%s\n", $opts->{array_prefix}, $l[0],
+			  $opts->{array_suffix});
+	return $ret;
+    }
+
     my %opts = %$opts;
     return sprintf("%s%s%s", 
 		   $opts{array_prefix}, $opts{lineprefix}, 
@@ -116,7 +129,7 @@ sub columnize($;$) {
 				 join($opts{colsep}, @texts)));
 	    }
 	}
-	return join("\n", @s);
+	return join("\n", @s) . "\n";
     } else {
     	my $array_index = sub ($$$) {
 	    my ($num_rows, $row, $col) = @_;
@@ -188,12 +201,12 @@ sub columnize($;$) {
 		    $texts[$col] = sprintf($fmt, $texts[$col]);
 		}
 	    }
-	    push(@s, sprintf("%s%s", $opts{lineprefix}, 
-
+	    push(@s, sprintf("%s%s", $prefix, 
 			     join($opts{colsep}, @texts))) if scalar(@texts);
-
+	    $prefix = $opts->{lineprefix};
 	}
-	return join("\n", @s);
+	$s[-1] .= $opts->{array_suffix};
+	return join("\n", @s) . "\n";
     }
 }
 
@@ -213,12 +226,12 @@ unless (caller) {
 
     for my $tuple ([4, 4], [4, 7], [100, 180]) {
 	my @data = ($tuple->[0]..$tuple->[1]);
-	print columnize(\@data, {colsep =>'  ', arrange_vertical=>0}), "\n";
+	print columnize(\@data, {colsep =>'  ', arrange_vertical=>0});
 	print '------------------------';
-	print columnize(\@data, {colsep =>'  ', arrange_vertical=>1}), "\n";
+	print columnize(\@data, {colsep =>'  ', arrange_vertical=>1});
 	print '========================';
     }
-    print columnize(["a", 2, "c"], {displaywidth => 10, colsep => ', '}), "\n";
+    print columnize(["a", 2, "c"], {displaywidth => 10, colsep => ', '});
     print columnize(["oneitem"]);
     print columnize(["one", "two", "three"]);
     my @data = ("one",       "two",         "three",
@@ -230,8 +243,11 @@ unless (caller) {
 		"nineteen",  "twenty",      "twentyone",
 		"twentytwo", "twentythree", "twentyfour",
 		"twentyfive","twentysix",   "twentyseven");
-	    
+
     print columnize(\@data);
+    @data = (1..30);
+    print columnize(\@data, 
+		    {arrange_array => 1, ljust =>0, displaywidth => 70});
 }
 
 1;

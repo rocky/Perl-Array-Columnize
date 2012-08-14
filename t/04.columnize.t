@@ -12,14 +12,14 @@ BEGIN {
 use Array::Columnize::columnize;
 
 note( "Testing degenerate cases" );
-is(Array::Columnize::columnize([]), "<empty>");
-is( Array::Columnize::columnize(["oneitem"]), "oneitem");
+is(Array::Columnize::columnize([]), "<empty>\n");
+is( Array::Columnize::columnize(["oneitem"]), "oneitem\n");
 
 note( "Testing horizontal placement" );
 is(Array::Columnize::columnize(['1', '2', '3', '4'],
                                {displaywidth => 4, colsep => '  ', 
 				arrange_vertical => 0}),
-   "1  2\n3  4");
+   "1  2\n3  4\n");
 
 my @data = (0..54);
 is(
@@ -33,16 +33,24 @@ is(
     "2,  8, 14, 20, 26, 32, 38, 44, 50\n" .
     "3,  9, 15, 21, 27, 33, 39, 45, 51\n" .
     "4, 10, 16, 22, 28, 34, 40, 46, 52\n" .
-    "5, 11, 17, 23, 29, 35, 41, 47, 53"
+    "5, 11, 17, 23, 29, 35, 41, 47, 53\n"
 );
     
 note( "Testing vertical placement" );
 my $args = ['step', 'next', 'kill', 'quit'];
 my $b = Array::Columnize::columnize($args);
-is("step  next  kill  quit", $b);
+is("step  next  kill  quit\n", $b);
 
-is("1  3\n2  4", 
+is("1  3\n2  4\n", 
    Array::Columnize::columnize(['1', '2', '3', '4'], {displaywidth => 4}));
+
+note( "Testing array formatting" );
+@data = (1..30);
+is(Array::Columnize::columnize(\@data,
+			       {arrange_array => 1, ljust =>0, 
+				displaywidth => 70}),
+   "( 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15\n" .
+   " 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30)\n");
 
 # is(
 #     " 0,  1,  2,  3,  4,  5,  6,  7,  8,  9\n" .

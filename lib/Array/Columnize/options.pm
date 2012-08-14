@@ -9,7 +9,7 @@ use vars qw($DEFAULT_OPTS);
 
 # Default values for columize options.
 $DEFAULT_OPTS = {
-    arrange_array => 1,
+    arrange_array => 0,
     arrange_vertical => 1,
     array_prefix => '',
     array_suffix => '',
