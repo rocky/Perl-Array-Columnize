@@ -109,7 +109,7 @@ And
 
     my $array_ref = [1..30];
     print columnize($array_ref,
-		    {arrange_array => 1, ljust =>0, displaywidth => 70});
+		    {arrange_array => 1, ljust => 0, displaywidth => 70});
 
 produces:
 
@@ -128,7 +128,7 @@ produces:
     madascar  tokay   
     leopard 
 
-    puts columnize \@ary, {displaywidth => 18, colsep => ' | '};
+    print columnize \@ary, {displaywidth => 18, colsep => ' | '};
 
 produces:
 
