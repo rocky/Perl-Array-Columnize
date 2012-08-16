@@ -62,7 +62,7 @@ Array::Columnize - arrange list data in columns.
 =head1 SYNOPSIS
 
     use Array::Columnize;
-    print columnize($array_ref, $optional_hash_or_hash_ref), "\n";
+    print columnize($array_ref, $optional_hash_or_hash_ref);
 
 =head1 DESCRIPTION
 
@@ -75,7 +75,7 @@ aligned.
 
 =head2 Simple data example 
 
-    print columnize(['a','b','c','d'], {displaywidth=>4}), "\n";
+    print columnize(['a','b','c','d'], {displaywidth=>4});
 
 produces:
 
