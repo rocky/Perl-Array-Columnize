@@ -1,3 +1,27 @@
+2012-08-19  rocky <rocky@cpan.org>
+
+	* Build.PL, Changes, lib/Array/Columnize.pm: Get ready for 1.02
+	release
+
+2012-08-16  rocky <rocky@cpan.org>
+
+	* lib/Array/Columnize.pm: puts -> print. This is not Ruby.
+
+2012-08-16  rocky <rocky@cpan.org>
+
+	* lib/Array/Columnize.pm: Remove extra \n's in perlpod. We don't
+	need them any more.
+
+2012-08-14  rocky <rocky@cpan.org>
+
+	* lib/Array/Columnize.pm: Update bug tracker location
+
+2012-08-14  rocky <rocky@cpan.org>
+
+	* Build.PL, ChangeLog, README.md, lib/Array/Columnize.pm: Doc
+	formatting on last example. Bump version number and updated
+	ChangeLog.
+
 2012-08-13  rocky <rocky@cpan.org>
 
 	* META.yml: Add version of perl and bump version.
