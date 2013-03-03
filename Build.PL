@@ -29,8 +29,8 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/Array/Columnize.pm',
     license             => 'gpl',
     needs_compiler      => 0,
-    release_status      => 'stable', # or 'testing'
-    # release_status      => 'testing', # or 'stable'
+    # release_status      => 'stable', # or 'testing'
+    release_status      => 'testing', # or 'stable'
 
     meta_merge => {
 	resources => {
@@ -44,12 +44,14 @@ my $builder = Module::Build->new(
 	'Module::Build'           => 0,
 	'perl'                    => '5.006001',
     },
+    test_requires => {
+        'rlib'                    => '0.02',
+    },
     build_requires => {
         'Test::More'              => 0.81,
     },
     requires => {
         'version'                 => 0,
-        'rlib'                    => '0.02',
     },
     sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
     );
