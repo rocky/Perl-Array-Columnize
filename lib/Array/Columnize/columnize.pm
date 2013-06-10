@@ -1,6 +1,18 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl
 # See doc in Array::Columnize
 use rlib '../..';
+
+BEGIN {
+    no strict;
+    @OLD_INC = @INC;
+}
+use rlib '../..';
+use Array::Columnize::options;
+BEGIN {
+    no strict;
+    @INC = @OLD_INC;
+}
+
 use Array::Columnize::options;
 package Array::Columnize;
 use strict;
@@ -23,7 +35,7 @@ sub cell_size($$) {
 
 # or arranged horizontally:
 #     ['1', '2,', '3', '4'] => '1  2\n3  4\n'
-#     
+#
 # Each column is only as wide possible, no larger than
 # +displaywidth'.  If +list+ is not an array, the empty string, '',
 # is returned. By default, columns are separated by two spaces - one
@@ -34,7 +46,7 @@ sub cell_size($$) {
 sub columnize($;$) {
     my($aref, $opts) = @_;
     my @l = @$aref;
-    
+
     # Some degenerate cases
     # FIXME test for arrayness
     # return '' if  $aref is not an array
@@ -54,9 +66,11 @@ sub columnize($;$) {
 	return $ret;
     }
 
+    @l = map(sprintf($opts->{colfmt}, $_), @l) if $opts->{colfmt};
+
     my %opts = %$opts;
-    return sprintf("%s%s%s", 
-		   $opts{array_prefix}, $opts{lineprefix}, 
+    return sprintf("%s%s%s",
+		   $opts{array_prefix}, $opts{lineprefix},
 		    $l[0], $opts{array_suffix}) if 1 == scalar(@l);
 
     my ($nrows, $ncols) = (0, 0);  # Make nrows, ncols have more global scope
@@ -68,7 +82,7 @@ sub columnize($;$) {
 	$opts{displaywidth} -= length($opts{lineprefix})
     }
     if ($opts{arrange_vertical}) {
-	my $array_index = sub ($$$) { 
+	my $array_index = sub ($$$) {
 	    my ($num_rows, $row, $col) = @_;
 	    ($num_rows * $col) + $row
 	};
@@ -78,7 +92,7 @@ sub columnize($;$) {
 	    $ncols = POSIX::ceil((scalar(@l)) / $nrows);
 	    @colwidths = ();
 	    my $totwidth = -length($opts{colsep});
-	    
+
 	    for (my $col=0; $col < $ncols; $col++) {
 		# get max column width for this column
 		my $colwidth = 0;
@@ -121,15 +135,15 @@ sub columnize($;$) {
 		for (my $col=0; $col < scalar(@texts); $col++) {
 		    unless ($ncols == 1 && $opts{ljust}) {
 			my $fmt = sprintf("%%%s$colwidths[$col]s",
-					  ($opts{ljust} ? '-': '')); 
+					  ($opts{ljust} ? '-': ''));
 			$texts[$col] = sprintf($fmt, $texts[$col]);
 		    }
 		}
-		push(@s, sprintf("%s%s", $opts{lineprefix}, 
+		push(@s, sprintf("%s%s", $opts{lineprefix},
 				 join($opts{colsep}, @texts)));
 	    }
 	}
-	return join("\n", @s) . "\n";
+	return join($opts{linesuffix}, @s) . "\n";
     } else {
     	my $array_index = sub ($$$) {
 	    my ($num_rows, $row, $col) = @_;
@@ -153,7 +167,7 @@ sub columnize($;$) {
 		    	$row = $_row;
 		    	$i = $array_index->($nrows, $row, $col);
 		    	last if $i >= scalar(@l);
-			my $try_size = cell_size($l[$i], 
+			my $try_size = cell_size($l[$i],
 						 $opts{term_adjust});
 			$colwidth = $try_size if $try_size > $colwidth;
 		    }
@@ -180,8 +194,8 @@ sub columnize($;$) {
 	# Now we just have to format each of the
 	# rows.
 	my @s = ();
-	my $prefix = $opts{array_prefix} = '' ? 
-	    $opts{lineprefix} : $opts{array_prefix}; 
+	my $prefix = $opts{array_prefix} = '' ?
+	    $opts{lineprefix} : $opts{array_prefix};
 	for (my $row=1; $row <= $nrows; $row++) {
 	    my @texts = ();
 	    my $x;
@@ -197,16 +211,16 @@ sub columnize($;$) {
 	    for (my $col=0; $col < scalar(@texts); $col++) {
 		unless ($ncols == 1 && $opts{ljust}) {
 		    my $fmt = sprintf("%%%s$colwidths[$col]s",
-				      ($opts{ljust} ? '-': '')); 
+				      ($opts{ljust} ? '-': ''));
 		    $texts[$col] = sprintf($fmt, $texts[$col]);
 		}
 	    }
-	    push(@s, sprintf("%s%s", $prefix, 
+	    push(@s, sprintf("%s%s", $prefix,
 			     join($opts{colsep}, @texts))) if scalar(@texts);
 	    $prefix = $opts->{lineprefix};
 	}
 	$s[-1] .= $opts->{array_suffix};
-	return join("\n", @s) . "\n";
+	return join($opts{linesuffix}, @s) . "\n";
     }
 }
 
@@ -246,7 +260,7 @@ unless (caller) {
 
     print columnize(\@data);
     @data = (1..30);
-    print columnize(\@data, 
+    print columnize(\@data,
 		    {arrange_array => 1, ljust =>0, displaywidth => 70});
 }
 

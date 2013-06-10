@@ -1,5 +1,10 @@
 Revision history for Array::Columnize
 
+1.03 -
+    - Add linesuffix, and colfmt options
+    - document all options
+    - Workaround rlib limitation.
+
 1.02 - Aug 19, 2012
     - Rerelease just for some Meta and Doc changes
 
@@ -9,7 +14,7 @@ Revision history for Array::Columnize
     - incompatible change: always end string with "\n"
 
 1.00 - Aug 12, 2012
-    - Packaging changes. Version number conforms to 
+    - Packaging changes. Version number conforms to
       http://perldoc.perl.org/perlmodstyle.html#Version-numbering
     - Change Meta data to point to github repository and issue tracker
 
@@ -24,8 +29,8 @@ Revision history for Array::Columnize
     - More strict on tests and as per CPANTS reports
 
 0.3.9 - Nov 12, 2011
-    - rerelease with 'dev' in version number. 
-      it was messing up some Module::Builds 
+    - rerelease with 'dev' in version number.
+      it was messing up some Module::Builds
     - Update GNUmakefile
     - Build.PL back to more convenient form (for worse kwalitee).
 
@@ -34,7 +39,7 @@ Revision history for Array::Columnize
         - http://cpants.perl.org/kwalitee.html#buildtool_not_executable
     - Add an environment variable - PERL_MB_NOSIGN to disable signing a package
     (which interferes with the flow of doing ./Build disttest ).
-    - Renamed Makefile to Makefile.devel so doing perl Makefile.PL won't 
+    - Renamed Makefile to Makefile.devel so doing perl Makefile.PL won't
     interfere with it.
     - Correct some typos in the README.md and added a TODO there (SHLOMIF).
     - Add some POD to lib/Array/Columnize.pm (SHLOMIF).
@@ -47,5 +52,3 @@ Remove feature "say" so it works on Perl pre 5.010.
 
 0.3.5 - Sept 05, 2011
 Initial revision
-
-

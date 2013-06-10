@@ -13,9 +13,11 @@ $DEFAULT_OPTS = {
     arrange_vertical => 1,
     array_prefix => '',
     array_suffix => '',
+    colfmt => '',
     colsep => '  ',
     displaywidth => $ENV{'COLUMNS'} || 80,
     lineprefix => '',
+    linesuffix => "\n",
     ljust => 'auto',
     term_adjust => 0
 };
