@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 # See doc in Array::Columnize
-use rlib '../..';
 
 BEGIN {
     no strict;

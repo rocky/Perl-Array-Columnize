@@ -3,7 +3,7 @@ Revision history for Array::Columnize
 1.03 -
     - Add linesuffix, and colfmt options
     - document all options
-    - Workaround rlib limitation.
+    - Work around rlib limitation.
 
 1.02 - Aug 19, 2012
     - Rerelease just for some Meta and Doc changes
