@@ -1,3 +1,9 @@
+2013-06-11  rocky <rocky@cpan.org>
+
+	* ChangeLog, GNUmakefile, lib/Array/Columnize.pm,
+	lib/Array/Columnize/columnize.pm: Podify columnize.pm. Work around a
+	rlib limitation. Get ready for release 1.03
+
 2013-06-10  rocky <rocky@cpan.org>
 
 	* Changes, lib/Array/Columnize/columnize.pm: Ooops- spurious extra
