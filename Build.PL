@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl
 #  Copyright (C) 2011, 2012 Rocky Bernstein <rocky@cpan.org>
 #
 #  This program is free software: you can redistribute it and/or modify
@@ -19,25 +19,25 @@ use warnings;
 use Module::Build;
 use Config;
 
-my $builder = Module::Build->new( 
+my $builder = Module::Build->new(
     module_name         => 'Array::Columnize',
     add_to_cleanup      => [ 'Array-Columnize-*', 'tmp*'  ],
     create_makefile_pl  => 'passthrough',
-    dist_abstract       => 
+    dist_abstract       =>
     'Format an Array as an Array of String aligned in columns.',
     dist_author         => 'Rocky Bernstein <rocky@cpan.org>',
     dist_version_from   => 'lib/Array/Columnize.pm',
     license             => 'gpl',
     needs_compiler      => 0,
-    # release_status      => 'stable', # or 'testing'
-    release_status      => 'testing', # or 'stable'
+    release_status      => 'stable', # or 'testing'
+    # release_status      => 'testing', # or 'stable'
 
     meta_merge => {
 	resources => {
 	    bugtracker  => 'https://github.com/rocky/Perl-Array-Columnize/issues',
 	    repository  => 'http://github.com/rocky/Perl-Array-Columnize'
 	}
-    },    
+    },
 
 
     configure_requires => {
