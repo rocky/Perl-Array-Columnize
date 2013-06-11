@@ -16,8 +16,10 @@
 #     PREREQ_PM => { Test::More=>q[0], version=>q[0], ExtUtils::PkgConfig=>q[1.03] }
 
 # Note: remake (GNU make with debugging) has a --tasks option which
-# will show important targets. In remake, to give a target a 
+# will show important targets. In remake, to give a target a
 # user-friendly description, one starts a comment line with #:
+
+GIT2CL ?= git2cl
 
 #: Build everything
 all:
@@ -28,16 +30,16 @@ build:
 	perl Build --makefile_env_macros 1 build
 
 #: Remove automatically generated files
-clean: 
+clean:
 	perl Build --makefile_env_macros 1 clean
 
-code: 
+code:
 	perl Build --makefile_env_macros 1 code
 
 config_data:
 	perl Build --makefile_env_macros 1 config_data
 
-diff: 
+diff:
 	perl Build --makefile_env_macros 1 diff
 
 #: Create distribution tarball
@@ -73,7 +75,7 @@ fakeinstall:
 help:
 	perl Build --makefile_env_macros 1 help
 
-html: 
+html:
 	perl Build --makefile_env_macros 1 html
 
 #: Install this puppy
@@ -117,6 +119,13 @@ test:
 #: Check code coverage
 testcover:
 	perl Build --makefile_env_macros 1 testcover
+
+rmChangeLog:
+	rm ChangeLog || true
+
+#: Create a ChangeLog from git via git log and git2cl
+ChangeLog: rmChangeLog
+	git log --pretty --numstat --summary | $(GIT2CL) >$@
 
 #:Create a log file from the individual commits
 ChangeLog:

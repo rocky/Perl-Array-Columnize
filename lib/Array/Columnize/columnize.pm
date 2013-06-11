@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 # See doc in Array::Columnize
-
 BEGIN {
     no strict;
     @OLD_INC = @INC;
@@ -18,29 +17,45 @@ use strict;
 use warnings;
 use POSIX;
 
-# Return the length of String +cell+. If Boolean +term_adjust+ is true,
-# ignore terminal sequences in +cell+.
+=pod
+
+=head1 Subroutines
+
+=head2 cell_size
+
+Return the length of String I<cell>. If Boolean I<term_adjust> is true,
+ignore terminal sequences in I<cell>.
+
+=cut
+
 sub cell_size($$) {
     my ($cell, $term_adjust) = @_;
     $cell =~ s/\e\[.*?m//g if $term_adjust;
     return length($cell);
 }
 
-# Return a list of strings with embedded newlines (\n) as a compact
-# set of columns arranged horizontally or vertically.
-#
-# For example, for a line width of 4 characters (arranged vertically):
-#     ['1', '2,', '3', '4'] => '1  3\n2  4\n'
+=head2 columnize
 
-# or arranged horizontally:
-#     ['1', '2,', '3', '4'] => '1  2\n3  4\n'
-#
-# Each column is only as wide possible, no larger than
-# +displaywidth'.  If +list+ is not an array, the empty string, '',
-# is returned. By default, columns are separated by two spaces - one
-# was not legible enough. Set +colsep+ to adjust the string separate
-# columns. If +arrange_vertical+ is set false, consecutive items
-# will go across, left to right, top to bottom.
+Return a list of strings with embedded newlines (\n) as a compact
+set of columns arranged horizontally or vertically.
+
+For example, for a line width of 4 characters (arranged vertically):
+
+     ['1', '2,', '3', '4'] => '1  3\n2  4\n'
+
+or arranged horizontally:
+
+     ['1', '2,', '3', '4'] => '1  2\n3  4\n'
+
+Each column is only as wide possible, no larger than
+C<$opts->{displaywidth}>.  If I<aref>is not an array reference, the
+empty string, '', is returned. By default, columns are separated by
+two spaces - one was not legible enough. Set C<$opts->{colsep}> to
+adjust the string separate columns. If C<$opts->{arrange_vertical} is
+set false, consecutive items will go across, left to right, top to
+bottom.
+
+=cut
 
 sub columnize($;$) {
     my($aref, $opts) = @_;

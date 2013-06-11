@@ -6,7 +6,7 @@
 #
 #  See documentation for Columnize.columnize below.
 #
-# == License 
+# == License
 #
 # Columnize is copyright (C) 2011-2013 Rocky Bernstein <rocky@cpan.org>
 #
@@ -27,7 +27,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @EXPORT = qw(columnize);
 
 # Add or remove  _01 when we want testing.
-use version; $VERSION = '1.02_01';  
+use version; $VERSION = '1.03';
 
 unless (caller) {
     # Demo code
@@ -96,7 +96,7 @@ whether to left justify text instead of right justify. The default is true
 
 =head1 EXAMPLES
 
-=head2 Simple data example 
+=head2 Simple data example
 
     print columnize(['a','b','c','d'], {displaywidth=>4});
 
@@ -128,7 +128,7 @@ produces:
     110  111  112  113  114  115  116  117  118  119
     120
 
-And 
+And
 
     my $array_ref = [1..30];
     print columnize($array_ref,
@@ -144,21 +144,21 @@ produces:
     @ary = qw(bibrons golden madascar leopard mourning suras tokay);
     print columnize(\@ary, {displaywidth => 18});
 
-produces: 
+produces:
 
     bibrons   mourning
-    golden    suras   
-    madascar  tokay   
-    leopard 
+    golden    suras
+    madascar  tokay
+    leopard
 
     print columnize \@ary, {displaywidth => 18, colsep => ' | '};
 
 produces:
 
     bibrons  | mourning
-    golden   | suras   
-    madascar | tokay   
-    leopard 
+    golden   | suras
+    madascar | tokay
+    leopard
 
 =head1 AUTHOR
 
@@ -206,5 +206,3 @@ Copyright (c) 2011, 2012 Rocky Bernstein.
 Same terms as Perl.
 
 =cut
-
-

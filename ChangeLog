@@ -1,3 +1,23 @@
+2013-06-10  rocky <rocky@cpan.org>
+
+	* Changes, lib/Array/Columnize/columnize.pm: Ooops- spurious extra
+	"usr rlib"
+
+2013-06-10  rocky <rocky@cpan.org>
+
+	* Changes, lib/Array/Columnize.pm,
+	lib/Array/Columnize/columnize.pm, lib/Array/Columnize/options.pm: 
+	Work around a rlib limitation
+
+2013-03-02  rocky <rocky@cpan.org>
+
+	* Build.PL, META.yml, lib/Array/Columnize.pm: rlib is only needed in
+	testing
+
+2012-08-19  rocky <rocky@cpan.org>
+
+	* ChangeLog: What's up.
+
 2012-08-19  rocky <rocky@cpan.org>
 
 	* Build.PL, Changes, lib/Array/Columnize.pm: Get ready for 1.02
@@ -93,25 +113,13 @@
 
 2011-11-20  rocky <rocky@cpan.org>
 
-	Merge branch 'master' of github.com:rocky/Perl-Array-Columnize
-	Conflicts: 	META.yml
+	* : commit 6fb32d8567a0da6729d63eacf0669e4aacb9c7aa Author: rocky
+	<rocky@cpan.org> Date:   Sun Nov 20 22:12:33 2011 -0500
 
 2011-11-20  rocky <rocky@cpan.org>
 
-	* META.yml: Administrivia
-
-2011-11-20  rocky <rocky@cpan.org>
-
-	Merge branch 'master' of github.com:rocky/Perl-Array-Columnize
-	Conflicts: 	Build.PL
-
-2011-11-20  rocky <rocky@cpan.org>
-
-	* Build.PL, lib/Array/Columnize/columnize.pm, t/01.version.t,
-	t/02.options.t, t/03.cell_size.t, t/04.columnize.t, t/05.longcol.t: 
-	Don't left-pad one-column output in vertical arrangement. More
-	strict on tests and declare @diff in 02.options as per CPANTS.
-	Replace "use lib" with "use rlib". More strict on test
+	* : commit f7687c20a230e60931a76a542665ac29fcce2843 Author: rocky
+	<rocky@cpan.org> Date:   Sun Nov 20 22:08:00 2011 -0500
 
 2011-11-13  rocky <rocky@cpan.org>
 
@@ -144,17 +152,11 @@
 
 2011-10-29  R. Bernstein <rocky.bernstein@gmail.com>
 
-	Merge pull request #1 from shlomif/master  Some fixes for the
-	module's outstanding issues
+	* : Merge pull request #1 from shlomif/master Some fixes for the module's outstanding issues
 
 2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
 
-	* Changes: Document the previous commit.
-
-2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
-
-	* lib/Array/Columnize.pm: Add some rudimentary POD.  To
-	lib/Array/Columnize.pm.
+	* lib/Array/Columnize.pm: Add some rudimentary POD.  To lib/Array/Columnize.pm.
 
 2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
 
@@ -162,9 +164,8 @@
 
 2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
 
-	* lib/Array/Columnize.pm: Removed a sha-bang from a .pm file.  It's
-	not needed there, and editors should recognise .pm files as Perl 5
-	code if configured correctly.
+	* lib/Array/Columnize.pm: Removed a sha-bang from a .pm file.  It's not needed there, and editors should recognise .pm files as
+	Perl 5 code if configured correctly.
 
 2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
 
@@ -173,14 +174,11 @@
 
 2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
 
-	* Build.PL, Changes: Add the PERL_MB_NOSIGN env var.  This is to
-	disable signing a package.
+	* Build.PL, Changes: Add the PERL_MB_NOSIGN env var.  This is to disable signing a package.
 
 2011-10-29  Shlomi Fish <shlomif@iglu.org.il>
 
-	* Build.PL, META.yml: Made Build.PL non-executable.  See:
-	http://cpants.perl.org/kwalitee.html#buildtool_not_executable  for
-	why.
+	* Build.PL, META.yml: Made Build.PL non-executable.  See: http://cpants.perl.org/kwalitee.html#buildtool_not_executable for why.
 
 2011-10-28  rocky <rocky@cpan.org>
 
@@ -223,20 +221,12 @@
 
 2011-09-10  rocky <rocky@cpan.org>
 
-	I hate conflicted merges
+	* : I hate conflicted merges
 
 2011-09-10  rocky <rocky@cpan.org>
 
-	* lib/Array/Columnize/columnize.pm, t/04.columnize.t: I said no "\n"
-	on output.
-
-2011-09-10  rocky <rocky@cpan.org>
-
-	Merge branch 'master' of github.com:rocky/Perl-Array-Columnize
-
-2011-09-10  rocky <rocky@cpan.org>
-
-	* lib/Array/Columnize/columnize.pm: I said no "\n"'s on output.
+	* : commit a4610f53ac49aa3e5c718c6f49c9d3d1fd627992 Author: rocky
+	<rocky@cpan.org> Date:   Sat Sep 10 07:42:52 2011 -0400
 
 2011-09-05  rocky <rocky@cpan.org>
 
@@ -246,13 +236,8 @@
 
 2011-08-24  rocky <rocky@cpan.org>
 
-	Merge branch 'master' of github.com:rocky/Perl-Array-Columnize
-
-2011-08-21  rocky <rocky@cpan.org>
-
-	* lib/Array/Columnize/columnize.pm, t/04.columnize.t: Work around an
-	extra line in horizontal placement caused by a row count sometimes
-	one greater.
+	* : commit c944e21329b71f23874143749bf8553847388694 Author: rocky
+	<rocky@cpan.org> Date:   Sun Aug 21 19:10:54 2011 -0400
 
 2011-08-21  rocky <rocky@cpan.org>
 
@@ -272,9 +257,9 @@
 2011-08-07  rocky <rocky@cpan.org>
 
 	* lib/Array/Columnize/options.pm: Don't use "use" for demo code as
-	it takes effect at compile time. E.g. don't necessarily want to pull
-	in Data::Dumper if we don't have to. (However in the full-blown
-	debugger it will probably be there.)
+	it takes effect at compile time. E.g.  don't necessarily want to
+	pull in Data::Dumper if we don't have to.  (However in the
+	full-blown debugger it will probably be there.)
 
 2011-08-07  rocky <rocky@cpan.org>
 
@@ -311,6 +296,6 @@
 
 2011-08-07  rocky <rocky@cpan.org>
 
-	* Initial commit of port of Ruby Columnize. Have a bug in listing
+	* Initial commit of port of Ruby Columnize.  Have a bug in listing
 	horizontally. Need to port test and package this.
 
