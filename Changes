@@ -1,5 +1,7 @@
 Revision history for Array::Columnize
 
+1.04 - June 12, 2013
+    - botched release 1.03
 1.03 - June 12, 2013
     - Add linesuffix, and colfmt options
     - document all options

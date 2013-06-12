@@ -20,7 +20,6 @@
 # user-friendly description, one starts a comment line with #:
 
 GIT2CL ?= git2cl
-
 #: Build everything
 all:
 	perl Build --makefile_env_macros 1

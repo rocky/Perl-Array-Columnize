@@ -27,7 +27,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
 @EXPORT = qw(columnize);
 
 # Add or remove  _01 when we want testing.
-use version; $VERSION = '1.03';
+use version; $VERSION = '1.04';
 
 unless (caller) {
     # Demo code

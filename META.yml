@@ -7,6 +7,7 @@ build_requires:
 configure_requires:
   Module::Build: 0
   perl: 5.006001
+  rlib: 0.02
 dynamic_config: 1
 generated_by: 'Module::Build version 0.4, CPAN::Meta::Converter version 2.120921'
 license: open_source
@@ -17,11 +18,11 @@ name: Array-Columnize
 provides:
   Array::Columnize:
     file: lib/Array/Columnize.pm
-    version: 1.03
+    version: 1.04
 requires:
   version: 0
 resources:
   bugtracker: https://github.com/rocky/Perl-Array-Columnize/issues
   license: http://www.gnu.org/licenses/old-licenses/gpl-1.0.txt
   repository: http://github.com/rocky/Perl-Array-Columnize
-version: 1.03
+version: 1.04
