@@ -43,13 +43,14 @@ my $builder = Module::Build->new(
     configure_requires => {
 	'Module::Build'           => 0,
 	'perl'                    => '5.006001',
-        'rlib'                    => '0.02',
     },
     build_requires => {
         'Test::More'              => 0.81,
+        'rlib'                    => '0.02',
     },
     requires => {
         'version'                 => 0,
+        'rlib'                    => '0.02',
     },
     sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
     );
