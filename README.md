@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rocky/Perl-Array-Columnize.png)](https://travis-ci.org/rocky/Perl-Array-Columnize)
+
 Columnize - format an Array as a Column-aligned String
 ============================================================================
 
@@ -11,7 +13,7 @@ Setup
 
     use Array::Columnize;
 
-Simple data example 
+Simple data example
 -------------------
 
     print columnize(['a','b','c','d'], {displaywidth=>4}), "\n";
@@ -44,11 +46,11 @@ produces:
     110  111  112  113  114  115  116  117  118  119
     120
 
-And 
+And
 
     $num_ary = [1..30];
-    puts columnize $num_ary, 
-    {displaywidth => 18, 
+    puts columnize $num_ary,
+    {displaywidth => 18,
 		    {arrange_array => 1, ljust =>0, displaywidth => 70});
 
 produces:
@@ -62,21 +64,21 @@ With String data
     @ary = qw(bibrons golden madascar leopard mourning suras tokay);
     print columnize(\@ary, {displaywidth => 18});
 
-produces: 
+produces:
 
     bibrons   mourning
-    golden    suras   
-    madascar  tokay   
-    leopard 
+    golden    suras
+    madascar  tokay
+    leopard
 
     puts columnize \@ary, {displaywidth => 18, colsep => ' | '};
 
 produces:
 
     bibrons  | mourning
-    golden   | suras   
-    madascar | tokay   
-    leopard 
+    golden   | suras
+    madascar | tokay
+    leopard
 
 
 Credits
