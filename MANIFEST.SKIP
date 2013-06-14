@@ -41,6 +41,8 @@
 # Avoid configuration metadata file
 ^MYMETA\.
 
+^\.travis\.yml$
+
 # Avoid Module::Build generated and utility files.
 \bBuild$
 \bBuild.bat$
