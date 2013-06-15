@@ -1,12 +1,13 @@
 Build.PL			Run this first. Creates Build program
 ChangeLog
-Changes				What's changed? 
+Changes				What's changed?
 GNUmakefile			Compatibilty for non-Perl users. Try: remake --tasks
 eg/example.pl
 lib/Array/Columnize.pm
 lib/Array/Columnize/columnize.pm
 lib/Array/Columnize/options.pm
 Makefile.PL			Compatibility with MakeMaker
+LICENSE
 MANIFEST			This list of files
 META.json
 META.yml
