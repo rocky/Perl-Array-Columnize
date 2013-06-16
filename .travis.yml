@@ -2,10 +2,7 @@ language: perl
 
 install:
   # Prerequisites
-  - "cpanm install rlib"
-  - "cpanm install rlib"
-  - "cpanm install rlib"
-  - "cpanm install rlib"
+  - "cpanm rlib"
 
 perl:
   - "5.16"
