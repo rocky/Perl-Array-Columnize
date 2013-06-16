@@ -18,6 +18,14 @@ use strict;
 use warnings;
 use Module::Build;
 use Config;
+use File::Basename;
+use File::Spec;
+my $lib = File::Spec->catfile(dirname(__FILE__), 'lib');
+unshift @INC, $lib;
+require Array::Columnize;
+
+my $release_status = ($Array::Columnize::VERSION =~ /_/) ?
+    'testing' : 'stable';
 
 my $builder = Module::Build->new(
     module_name         => 'Array::Columnize',
@@ -29,8 +37,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/Array/Columnize.pm',
     license             => 'gpl',
     needs_compiler      => 0,
-    # release_status      => 'stable', # or 'testing'
-    release_status      => 'testing', # or 'stable'
+    release_status      => $release_status,
 
     meta_merge => {
 	resources => {
@@ -44,6 +51,8 @@ my $builder = Module::Build->new(
 	'Module::Build'           => 0,
 	'perl'                    => '5.006001',
         'rlib'                    => '0.02',
+	'File::Spec'              => 0,
+	'File::Basename'          => 0,
     },
     build_requires => {
         'Test::More'              => 0.81,
