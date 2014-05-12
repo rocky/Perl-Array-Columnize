@@ -75,7 +75,9 @@ sub columnize($;$) {
         $opts->{arrange_vertical} = 0;
     };
     if (1 == scalar @l) {
-	my $ret = sprintf("%s%s%s\n", $opts->{array_prefix}, $l[0],
+	my $ret = sprintf("%s%s%s\n",
+			  $opts->{array_prefix},
+			  $l[0],
 			  $opts->{array_suffix});
 	return $ret;
     }
@@ -83,9 +85,6 @@ sub columnize($;$) {
     @l = map(sprintf($opts->{colfmt}, $_), @l) if $opts->{colfmt};
 
     my %opts = %$opts;
-    return sprintf("%s%s%s",
-		   $opts{array_prefix}, $opts{lineprefix},
-		    $l[0], $opts{array_suffix}) if 1 == scalar(@l);
 
     my ($nrows, $ncols) = (0, 0);  # Make nrows, ncols have more global scope
     my @colwidths = ();     # Same for colwidths
