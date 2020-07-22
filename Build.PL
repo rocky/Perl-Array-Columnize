@@ -42,7 +42,7 @@ my $builder = Module::Build->new(
     meta_merge => {
 	resources => {
 	    bugtracker  => 'https://github.com/rocky/Perl-Array-Columnize/issues',
-	    repository  => 'http://github.com/rocky/Perl-Array-Columnize'
+	    repository  => 'https://github.com/rocky/Perl-Array-Columnize'
 	}
     },
 
