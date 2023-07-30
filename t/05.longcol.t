@@ -4,7 +4,7 @@ use warnings;
 use Test::More;
 use rlib '../lib';
 use Test::More;
-use Array::Columnize::columnize
+use Array::Columnize::columnize;
 
 note( "Testing when width is less than one of the items" );
 my $data = ["what's", "upppppppppppppppppp"];
